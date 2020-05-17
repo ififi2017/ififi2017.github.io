@@ -157,6 +157,95 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://rainif.com/2020/05/18/EFI%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="fi niaR">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fi_niaR">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/18/EFI%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-md/" class="post-title-link" itemprop="url">联想 ThinkCentre M828z-N000 macOS Catalina 10.15.4 OpenCore EFI配置文件</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-05-18 03:45:59 / 修改时间：03:48:50" itemprop="dateCreated datePublished" datetime="2020-05-18T03:45:59+08:00">2020-05-18</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="本机配置"><a href="#本机配置" class="headerlink" title="本机配置"></a>本机配置</h1><p>型号：Lenovo ThinkCentre M828z-N000</p>
+<p>CPU：i5-9500</p>
+<p>显卡：Intel UHD Graphics 630</p>
+<p>RAM：DDR4 8GB</p>
+<p>声卡：ALC235</p>
+<p>有线网卡：Intel Ethernet Connection I219-V</p>
+<p>硬盘：SAMSUNG NVME M.2 SSD PM981</p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>使用OpenCore 0.5.8 支持macOS 10.15.4。</p>
+<h2 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h2><blockquote>
+<p>因为此款机型硬件特殊性，安装macOS时使用Kexts和SSDT与正常使用下均有不同。</p>
+</blockquote>
+<h3 id="带PM981固态硬盘的安装方法"><a href="#带PM981固态硬盘的安装方法" class="headerlink" title="带PM981固态硬盘的安装方法"></a>带PM981固态硬盘的安装方法</h3><ol>
+<li>将Kexts文件夹下的HackrNVMeFamily.kext和APCI文件夹下的ssdt-nvme.aml移出备用。</li>
+<li>将macOS安装到其他硬盘（不能是PM981上），安装到第二阶段的自动重启后进入Windows。</li>
+<li>使用分区备份软件（如：Paragon Hard Disk Manager等同类软件。）使用备份或者复制的方式恢复到PM981上。</li>
+<li>将HackrNVMeFamily.kext和ssdt-nvme.aml放回原位，移出Kexts文件夹的NVMeFix.kext。</li>
+<li>继续安装，设置向导，安装完成。</li>
+</ol>
+<h3 id="非PM981固态硬盘的安装方法"><a href="#非PM981固态硬盘的安装方法" class="headerlink" title="非PM981固态硬盘的安装方法"></a>非PM981固态硬盘的安装方法</h3><ol>
+<li>移除Kexts文件夹下的HackrNVMeFamily.kext、NVMeFix.kext和APCI文件夹下的ssdt-nvme.aml。</li>
+<li>按照正常安装步骤安装。</li>
+</ol>
+<h2 id="BUG列表"><a href="#BUG列表" class="headerlink" title="BUG列表"></a>BUG列表</h2><ul>
+<li>睡眠</li>
+<li>……</li>
+</ul>
+<h1 id="感谢列表-（排名不分先后）"><a href="#感谢列表-（排名不分先后）" class="headerlink" title="感谢列表 （排名不分先后）"></a>感谢列表 （排名不分先后）</h1><p><a href="https://www.bilibili.com/video/BV1hA411t7dr" target="_blank" rel="noopener" title="Intel Coffee Lake平台完美黑苹果系统安装教程（Opencore+Catalina15.4）">Intel Coffee Lake平台完美黑苹果系统安装教程（Opencore+Catalina15.4）</a></p>
+<p><a href="https://dortania.github.io/OpenCore-Desktop-Guide/config.plist/coffee-lake.html" target="_blank" rel="noopener" title="OpenCore Desktop Guide - Coffee Lake">Coffee Lake - OpenCore Desktop Guide</a></p>
+<p><a href="https://1revenger1.gitbook.io/laptop-guide/prepare-install-macos/display-configuration#igpu-patching" target="_blank" rel="noopener" title="Display Configuration - OC-Laptop-Guide">Display Configuration - OC-Laptop-Guide</a></p>
+<p><a href="https://blog.daliansky.net/" target="_blank" rel="noopener" title="黑果小兵的部落格">黑果小兵的部落格</a></p>
+<p><a href="https://github.com/daliansky/OC-little" target="_blank" rel="noopener" title="ACPI Hotpatch Samples for the OpenCore Bootloader">ACPI Hotpatch Samples for the OpenCore Bootloader</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://rainif.com/2020/02/27/%E5%A6%82%E4%BD%95%E5%9C%A8-MSDN-I-Tell-You-%E4%B8%8A%E4%B8%8B%E8%BD%BDWindows%E9%95%9C%E5%83%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -299,7 +388,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -308,6 +397,10 @@
           
         <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
       </div>
   </nav>
 </div>
