@@ -7,3 +7,5 @@ next-env.d.ts
 .DS_Store
 .env*.local
 .obsidian/
+# Local-only symlink so Obsidian resolves /images/... to public/images/...
+/images
