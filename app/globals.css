@@ -369,22 +369,17 @@ body { margin: 0; }
 }
 .rk-nav-indicator {
   position: absolute;
-  inset-block: 0;
-  left: 0;
+  inset: 0;
   z-index: 0;
   border-radius: 7px;
   background: var(--neutral-100);
   box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--border-1) 70%, transparent);
   pointer-events: none;
-  transition:
-    transform var(--dur-slow) var(--ease-out),
-    width var(--dur-slow) var(--ease-out),
-    opacity var(--dur-base) var(--ease-out);
-  will-change: transform, width;
 }
 .rk-nav-item {
   position: relative;
   z-index: 1;
+  overflow: hidden;
   display: inline-flex; align-items: center; gap: 6px;
   font-family: var(--font-sans); font-size: 13.5px; font-weight: 500;
   color: var(--fg-2);
@@ -397,6 +392,11 @@ body { margin: 0; }
 .rk-nav-item:hover { color: var(--fg-1); transform: translateY(-1px); }
 .rk-nav-item.is-active { color: var(--fg-1); }
 .rk-nav-item .rk-i { width: 14px; height: 14px; }
+.rk-nav-item .rk-i,
+.rk-nav-label {
+  position: relative;
+  z-index: 1;
+}
 
 .rk-header-actions { display: flex; gap: 6px; }
 .rk-icon-btn {
@@ -1053,9 +1053,7 @@ a.rk-nav-item { text-decoration: none; }
   -webkit-backdrop-filter: blur(8px) saturate(120%);
   display: flex; align-items: flex-start; justify-content: center;
   padding: 14vh 24px 24px;
-  animation: rk-fade-in 180ms var(--ease-out);
 }
-@keyframes rk-fade-in { from { opacity: 0 } to { opacity: 1 } }
 
 .rk-search-dialog {
   width: 100%; max-width: 620px;
@@ -1066,9 +1064,7 @@ a.rk-nav-item { text-decoration: none; }
   overflow: hidden;
   display: flex; flex-direction: column;
   max-height: 72vh;
-  animation: rk-slide-down 260ms var(--ease-out);
 }
-@keyframes rk-slide-down { from { transform: translateY(-12px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
 
 .rk-search-head {
   display: flex; align-items: center; gap: 12px;
