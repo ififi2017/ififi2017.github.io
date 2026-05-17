@@ -631,7 +631,7 @@ body { margin: 0; }
 }
 
 .rk-post-body-wrap {
-  display: grid; grid-template-columns: 1fr 200px;
+  display: grid; grid-template-columns: minmax(0, 1fr) 200px;
   gap: 48px;
   align-items: start;
 }
@@ -641,6 +641,8 @@ body { margin: 0; }
   position: sticky; top: 100px;
   font-size: 13px;
   order: 2;
+  min-width: 0;
+  overflow: hidden;
 }
 .rk-toc-label {
   font-family: var(--font-mono); font-size: 10.5px;
@@ -656,13 +658,20 @@ body { margin: 0; }
   border-bottom: 0;
   cursor: pointer;
   transition: all var(--dur-base) var(--ease-out);
+  overflow-wrap: anywhere;
 }
 .rk-toc-list a:hover { color: var(--fg-1); border-left-color: var(--neutral-500); }
 .rk-toc-list li.is-active a {
   color: var(--brand-accent); border-left-color: var(--brand-accent);
 }
 
-.rk-post-body { order: 1; max-width: 100%; }
+.rk-post-body {
+  order: 1;
+  max-width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
 .rk-post-body h2 {
   font-size: 26px; font-weight: 700; letter-spacing: -0.02em;
   margin: 56px 0 16px;
@@ -673,7 +682,12 @@ body { margin: 0; }
 .rk-post-body p { margin: 0 0 16px; line-height: 1.75; }
 .rk-post-body ul, .rk-post-body ol { margin: 0 0 16px; padding-left: 24px; line-height: 1.85; }
 .rk-post-body li { margin-bottom: 4px; }
-.rk-post-body a { color: var(--fg-1); border-bottom: 1px solid var(--border-2); }
+.rk-post-body a {
+  color: var(--fg-1);
+  border-bottom: 1px solid var(--border-2);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
 .rk-post-body a:hover { color: var(--brand-accent); border-bottom-color: var(--brand-accent); }
 .rk-post-body code {
   font-family: var(--font-mono); font-size: 13px;
@@ -955,9 +969,15 @@ a.rk-nav-item { text-decoration: none; }
 .rk-prose ul, .rk-prose ol { margin: 0 0 16px; padding-left: 24px; line-height: 1.85; }
 .rk-prose li { margin-bottom: 4px; }
 .rk-prose li > p { margin-bottom: 4px; }
+.rk-prose :is(h2, h3, h4, p, li) {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
 .rk-prose a {
   color: var(--fg-1); border-bottom: 1px solid var(--border-2);
   transition: color var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .rk-prose a:hover { color: var(--brand-accent); border-bottom-color: var(--brand-accent); }
 .rk-prose code {
@@ -997,6 +1017,7 @@ a.rk-nav-item { text-decoration: none; }
 .rk-prose table {
   width: 100%; border-collapse: collapse; margin: 0 0 16px;
   font-size: 14px;
+  table-layout: fixed;
 }
 .rk-prose th, .rk-prose td {
   text-align: left; padding: 8px 12px;
