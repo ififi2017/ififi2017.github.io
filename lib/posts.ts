@@ -20,6 +20,9 @@ export type PostMeta = {
   tags: string[];
   excerpt: string;
   readingMinutes: number;
+  /** First image referenced in the markdown body, normalized to a web path.
+   *  Undefined when the post has no images. Used as a card thumbnail. */
+  coverImage?: string;
 };
 
 export type Post = PostMeta & {
@@ -84,6 +87,31 @@ const rewriteAssetPaths = (markdown: string): string =>
     .replace(/(!\[[^\]]*\]\()\.\.\/\.\.\/public\//g, '$1/')
     .replace(/(<img[^>]+src=["'])\.\.\/\.\.\/public\//g, '$1/');
 
+/** Normalize a single asset URL the same way rewriteAssetPaths does for bulk. */
+const normalizeAssetUrl = (url: string): string =>
+  url.replace(/^\.\.\/\.\.\/public\//, '/');
+
+/**
+ * Pull the first standalone image URL out of a post body for use as a card
+ * thumbnail. Skips:
+ *   - HTML comments (placeholders the author leaves in)
+ *   - Images wrapped in a link: `[![alt](src)](href)` — those are almost
+ *     always badges / buttons (e.g. "Deploy with Vercel"), not hero shots
+ * Returns undefined when the post has no eligible images.
+ */
+const extractCoverImage = (markdown: string): string | undefined => {
+  const withoutComments = markdown.replace(/<!--[\s\S]*?-->/g, '');
+  // Walk the document and find the first `![](url)` that isn't preceded by `[`
+  // (which would mean it's the content of a link, i.e. a badge / button).
+  const re = /(\[?)!\[[^\]]*\]\(\s*([^)\s]+)/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(withoutComments)) !== null) {
+    if (m[1] === '[') continue; // image is inside a link — skip
+    return normalizeAssetUrl(m[2]);
+  }
+  return undefined;
+};
+
 const renderMarkdown = async (markdown: string): Promise<string> => {
   const file = await unified()
     .use(remarkParse)
@@ -115,6 +143,7 @@ export const getAllPosts = (): PostMeta[] => {
       tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
       excerpt: String(data.excerpt ?? ''),
       readingMinutes: readingMinutes(content),
+      coverImage: extractCoverImage(content),
     } satisfies PostMeta;
   });
   posts.sort((a, b) => (a.date < b.date ? 1 : -1));
