@@ -64,10 +64,10 @@ export default function Header() {
           <Link href="/" className="rk-brand">
             <span className="rk-brand-avatar">
               <Image
-                src="/avatar.png"
+                src="/avatar-96.png"
                 alt="fi niaR"
-                width={60}
-                height={60}
+                width={96}
+                height={96}
                 priority
               />
             </span>

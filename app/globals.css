@@ -1,10 +1,7 @@
 /* =========================================================================
    rainif Design System — Foundations
-   Charcoal-on-paper, deep indigo accent, JetBrains Mono for tech metadata.
+   Charcoal-on-paper, deep indigo accent, system fonts for fast first paint.
    ========================================================================= */
-
-/* China-friendly mirror of Google Fonts (resolves inside the GFW). */
-@import url('https://fonts.loli.net/css2?family=Manrope:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
 
 :root {
   /* ---- Brand ---- */
@@ -58,9 +55,9 @@
   --danger-bg: #FAE6E5;
 
   /* ---- Type — families ---- */
-  --font-sans: 'Manrope', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif;
-  --font-serif: 'Instrument Serif', 'Noto Serif SC', Georgia, serif;
-  --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, Menlo, 'PingFang SC', monospace;
+  --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  --font-serif: ui-serif, 'Iowan Old Style', 'Songti SC', 'STSong', Georgia, serif;
+  --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Consolas, Menlo, 'PingFang SC', monospace;
 
   /* ---- Type — scale (1.250 modular, anchored at 16px) ---- */
   --t-xs:   12px;

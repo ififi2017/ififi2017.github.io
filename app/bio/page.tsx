@@ -12,7 +12,7 @@ export default function BioPage() {
       <header className="rk-bio-head">
         <div className="rk-bio-portrait">
           <Image
-            src="/avatar.png"
+            src="/avatar-256.png"
             alt="fi niaR"
             width={256}
             height={256}
