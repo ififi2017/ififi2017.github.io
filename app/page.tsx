@@ -11,14 +11,14 @@ export default function HomePage() {
       <section className="rk-hero">
         <div className="rk-eyebrow">
           <span className="rk-eyebrow-dot" />
-          <span>rainif.com · 自 2017</span>
+          <span>Rainif.com · Since 2017</span>
         </div>
         <h1 className="rk-hero-title">
           write it down,<br />
           <em>if </em> it rains.
         </h1>
         <p className="rk-hero-sub">
-          代码 · 视频 · 摄影 · 折腾。把值得留下的瞬间和过程记下来。<br />
+          Code · Video · Photography · Experimenting. Recording the moments and processes worth keeping.<br />
         </p>
         <div className="rk-hero-actions">
           <Link href="/archive/" className="rk-btn rk-btn-primary">
