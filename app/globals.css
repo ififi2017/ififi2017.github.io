@@ -1149,3 +1149,502 @@ a.rk-nav-item { text-decoration: none; }
 
 /* Post-page tag row spacing was lost when we moved tags below the article */
 .rk-post .rk-post-tags { margin-top: 36px; }
+
+/* =========================================================================
+   Mobile-first overrides
+   ========================================================================= */
+@media (max-width: 820px) {
+  .rk-screen {
+    padding: 32px 20px 72px;
+  }
+
+  .rk-header-inner {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px 16px;
+  }
+
+  .rk-brand-word {
+    font-size: 15px;
+  }
+
+  .rk-nav {
+    order: 3;
+    flex: 0 0 100%;
+    justify-content: stretch;
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    margin: 2px -2px 0;
+    scrollbar-width: none;
+  }
+
+  .rk-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .rk-nav-item {
+    flex: 1 0 auto;
+    min-width: max-content;
+    justify-content: center;
+    padding: 8px 10px;
+    font-size: 12.5px;
+  }
+
+  .rk-header-actions {
+    margin-left: auto;
+  }
+
+  .rk-search-btn {
+    min-width: auto;
+    padding-inline: 9px;
+  }
+
+  .rk-search-btn kbd {
+    display: none;
+  }
+
+  .rk-hero {
+    padding-top: 8px;
+  }
+
+  .rk-hero-title {
+    font-size: clamp(38px, 14vw, 52px);
+    line-height: 0.98;
+    margin-bottom: 18px;
+  }
+
+  .rk-hero-sub {
+    max-width: none;
+    font-size: 16px;
+    line-height: 1.75;
+    margin-bottom: 24px;
+  }
+
+  .rk-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .rk-btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+  }
+
+  .rk-rule {
+    margin: 36px 0;
+  }
+
+  .rk-list-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .rk-card-link {
+    padding: 18px 18px 20px;
+  }
+
+  .rk-card-title {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+
+  .rk-card-excerpt {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .rk-card-foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .rk-post {
+    max-width: 100%;
+  }
+
+  .rk-back {
+    padding-bottom: 16px;
+  }
+
+  .rk-post-header {
+    margin-bottom: 28px;
+    text-align: left;
+  }
+
+  .rk-post-meta {
+    justify-content: flex-start;
+    gap: 10px 14px;
+    margin-bottom: 16px;
+  }
+
+  .rk-post-title {
+    max-width: none;
+    font-size: clamp(30px, 9.2vw, 42px);
+    line-height: 1.06;
+    margin-bottom: 12px;
+  }
+
+  .rk-post-lede {
+    max-width: none;
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .rk-post-body-wrap {
+    gap: 0;
+  }
+
+  .rk-post-body h2,
+  .rk-prose h2 {
+    font-size: 24px;
+    margin: 40px 0 14px;
+    padding-top: 0;
+  }
+
+  .rk-post-body h3,
+  .rk-prose h3 {
+    font-size: 18px;
+    margin: 28px 0 10px;
+  }
+
+  .rk-post-body p,
+  .rk-post-body ul,
+  .rk-post-body ol,
+  .rk-prose p,
+  .rk-prose ul,
+  .rk-prose ol {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .rk-post-body ul,
+  .rk-post-body ol,
+  .rk-prose ul,
+  .rk-prose ol {
+    padding-left: 20px;
+  }
+
+  .rk-post-body code,
+  .rk-prose code {
+    font-size: 12px;
+  }
+
+  .rk-post-body pre,
+  .rk-prose pre {
+    margin-inline: -4px;
+    padding: 14px 14px;
+    font-size: 12px;
+    border-radius: 10px;
+  }
+
+  .rk-post-tags {
+    flex-wrap: wrap;
+  }
+
+  .rk-page-head {
+    margin-bottom: 32px;
+  }
+
+  .rk-page-title {
+    font-size: clamp(34px, 11vw, 44px);
+    line-height: 1.04;
+  }
+
+  .rk-page-sub {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .rk-archive,
+  .rk-tags-screen {
+    max-width: 100%;
+  }
+
+  .rk-archive-year {
+    margin-bottom: 40px;
+  }
+
+  .rk-archive-year-head {
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+
+  .rk-archive-year-num {
+    font-size: 32px;
+  }
+
+  .rk-archive-rule {
+    display: none;
+  }
+
+  .rk-archive-link {
+    grid-template-columns: 1fr auto;
+    gap: 8px 12px;
+    padding: 14px 0;
+    border-radius: 0;
+    border-top: 1px solid var(--border-1);
+    align-items: start;
+  }
+
+  .rk-archive-list li:last-child .rk-archive-link {
+    border-bottom: 1px solid var(--border-1);
+  }
+
+  .rk-archive-date {
+    grid-column: 1 / -1;
+    font-size: 11px;
+    letter-spacing: .02em;
+  }
+
+  .rk-archive-title {
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .rk-archive-cat {
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  .rk-archive-arrow {
+    opacity: 1;
+  }
+
+  .rk-tag-cloud {
+    gap: 10px 14px;
+    padding: 8px 0 4px;
+  }
+
+  .rk-tag-link {
+    line-height: 1.2;
+  }
+
+  .rk-cat-list {
+    grid-template-columns: 1fr;
+  }
+
+  .rk-cat-card {
+    padding: 16px 18px;
+  }
+
+  .rk-cat-name {
+    font-size: 16px;
+  }
+
+  .rk-bio-head {
+    gap: 18px;
+    padding-top: 4px;
+  }
+
+  .rk-bio-portrait {
+    width: 104px;
+    height: 104px;
+  }
+
+  .rk-bio-name {
+    font-size: clamp(30px, 9vw, 38px);
+    margin-bottom: 8px;
+  }
+
+  .rk-bio-handle {
+    display: block;
+    margin-top: 6px;
+    font-size: 14px;
+  }
+
+  .rk-bio-lede {
+    max-width: none;
+    font-size: 16px;
+  }
+
+  .rk-bio-lede em {
+    font-size: 20px;
+  }
+
+  .rk-bio-grid {
+    gap: 24px;
+  }
+
+  .rk-now-list li {
+    font-size: 14px;
+  }
+
+  .rk-link-list a {
+    font-size: 12px;
+    line-height: 1.6;
+    align-items: flex-start;
+  }
+
+  .rk-footer {
+    margin-top: 48px;
+    padding: 24px 0 32px;
+  }
+
+  .rk-footer-inner {
+    padding: 0 20px;
+    align-items: flex-start;
+  }
+
+  .rk-footer-meta {
+    flex-wrap: wrap;
+    row-gap: 2px;
+  }
+
+  .rk-search-overlay {
+    padding: 10vh 12px 12px;
+  }
+
+  .rk-search-dialog {
+    max-height: 78vh;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  .rk-screen {
+    padding-inline: 16px;
+    padding-bottom: 64px;
+  }
+
+  .rk-header-inner {
+    padding-inline: 12px;
+  }
+
+  .rk-brand {
+    gap: 8px;
+  }
+
+  .rk-brand-word {
+    font-size: 14px;
+  }
+
+  .rk-brand-avatar {
+    width: 28px;
+    height: 28px;
+  }
+
+  .rk-nav {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+    overflow: visible;
+  }
+
+  .rk-nav-item {
+    min-width: 0;
+    padding: 8px 4px;
+    font-size: 11.5px;
+    gap: 4px;
+    flex-direction: column;
+  }
+
+  .rk-nav-item .rk-i {
+    width: 13px;
+    height: 13px;
+  }
+
+  .rk-header-actions {
+    gap: 4px;
+  }
+
+  .rk-icon-btn {
+    height: 30px;
+    padding: 5px 8px;
+  }
+
+  .rk-hero-title {
+    font-size: clamp(34px, 13.6vw, 44px);
+  }
+
+  .rk-hero-sub {
+    font-size: 15px;
+  }
+
+  .rk-section-title {
+    font-size: 22px;
+  }
+
+  .rk-card-meta,
+  .rk-card-arrow,
+  .rk-post-meta,
+  .rk-meta-item,
+  .rk-link-list a,
+  .rk-footer-meta {
+    font-size: 11px;
+  }
+
+  .rk-post-title {
+    font-size: clamp(28px, 8.8vw, 36px);
+  }
+
+  .rk-post-lede {
+    font-size: 17px;
+  }
+
+  .rk-post-body h2,
+  .rk-prose h2 {
+    font-size: 22px;
+  }
+
+  .rk-post-body h3,
+  .rk-prose h3 {
+    font-size: 17px;
+  }
+
+  .rk-note {
+    padding: 12px 12px;
+    gap: 10px;
+  }
+
+  .rk-page-title {
+    font-size: clamp(30px, 10vw, 38px);
+  }
+
+  .rk-archive-title {
+    font-size: 14px;
+  }
+
+  .rk-bio-head {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .rk-bio-name {
+    font-size: 28px;
+  }
+
+  .rk-bio-grid {
+    gap: 20px;
+  }
+
+  .rk-cat-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .rk-search-head {
+    gap: 8px;
+    padding: 12px 12px;
+  }
+
+  .rk-search-results {
+    padding: 4px;
+  }
+
+  .rk-search-hit {
+    padding: 10px 10px;
+  }
+
+  .rk-comments {
+    margin-top: 48px;
+    padding-top: 24px;
+  }
+}
