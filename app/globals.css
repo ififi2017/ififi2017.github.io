@@ -304,6 +304,7 @@ body { margin: 0; }
   opacity: 1;
 }
 .rk-archive, .rk-tags-screen { max-width: 880px; }
+.rk-screen.rk-post { max-width: 1040px; }
 
 /* Optional enter reveal — relies on JS toggling .rk-screen-enter on mount.
    Defaults to fully visible so iframes / SSR / reduced-motion always see content. */
@@ -590,7 +591,8 @@ body { margin: 0; }
 .rk-post-title {
   font-size: 44px; line-height: 1.1; letter-spacing: -0.025em;
   font-weight: 700;
-  margin: 0 0 16px;
+  margin: 0 auto 16px;
+  max-width: 760px;
 }
 .rk-post-lede {
   font-family: var(--font-serif); font-style: italic;
