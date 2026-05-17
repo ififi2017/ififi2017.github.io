@@ -14,9 +14,8 @@ slug: off-work-countdown
 
 在线体验：[https://off.rainif.com/zh-CN](https://off.rainif.com/zh-CN)
 
-<!-- 扔图进 public/images/posts/off-work-countdown/，文件名对上就会显示
-![主界面截图](/images/posts/off-work-countdown/hero.png)
--->
+
+![主界面截图](/images/posts/off-work-countdown/hero.jpg)
 
 ## 为什么写这个
 
@@ -35,9 +34,8 @@ slug: off-work-countdown
 - **多语言**：i18n 框架，目前内置中英文，欢迎贡献其他语言
 - **响应式**：手机、平板、桌面都能看
 
-<!--
-![运行中的倒计时](/images/posts/off-work-countdown/running.png)
--->
+![运行中的倒计时](/images/posts/off-work-countdown/running.jpg)
+
 
 ## 技术栈
 
