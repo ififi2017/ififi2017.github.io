@@ -14,7 +14,11 @@ export default function Footer() {
           <span className="rk-dot">·</span>
           <span>rainif.com</span>
           <span className="rk-dot">·</span>
-          <span>Powered by Next.js</span>
+          <span>Code MIT</span>
+          <span className="rk-dot">·</span>
+          <span>Content CC BY-NC-SA 4.0</span>
+          <span className="rk-dot">·</span>
+          <span>Media all rights reserved</span>
         </div>
         <div className="rk-footer-social">
           <a href="https://github.com/ififi2017" title="GitHub" aria-label="GitHub" rel="me noopener">

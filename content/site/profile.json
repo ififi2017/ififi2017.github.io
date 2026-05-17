@@ -37,8 +37,9 @@
   ],
   "site": [
     "由 Next.js + React + Markdown 驱动。文章源文件在 `content/posts/*.md`，`git push` 即部署。",
-    "搜索 / 评论 / RSS 均为构建时生成；零运行时后端。"
+    "搜索 / 评论 / RSS 均为构建时生成；零运行时后端。",
+    "代码采用 MIT License；文章默认采用 CC BY-NC-SA 4.0；图片、照片、头像等个人媒体保留全部权利，除非另有说明。"
   ],
   "version": "v3.0.0",
-  "license": "MIT"
+  "license": "Code MIT · Content CC BY-NC-SA 4.0 · Media ARR"
 }
