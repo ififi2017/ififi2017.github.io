@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Home, Archive, Tag, User, Search, Sun, Moon } from 'lucide-react';
 import SearchModal from '@/components/SearchModal';
 
@@ -19,9 +19,12 @@ const isActive = (pathname: string, href: string) =>
 
 export default function Header() {
   const pathname = usePathname() ?? '/';
+  const navRef = useRef<HTMLElement | null>(null);
+  const navItemRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [mounted, setMounted] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [navIndicator, setNavIndicator] = useState({ left: 0, width: 0, visible: false });
 
   useEffect(() => {
     setMounted(true);
@@ -47,6 +50,43 @@ export default function Header() {
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, []);
+
+  useEffect(() => {
+    const nav = navRef.current;
+    const active = NAV.find(item => isActive(pathname, item.href));
+    const activeItem = active ? navItemRefs.current[active.href] : null;
+
+    if (!nav || !activeItem) {
+      setNavIndicator(current => ({ ...current, visible: false }));
+      return;
+    }
+
+    const updateIndicator = () => {
+      const navRect = nav.getBoundingClientRect();
+      const itemRect = activeItem.getBoundingClientRect();
+      setNavIndicator({
+        left: itemRect.left - navRect.left + nav.scrollLeft,
+        width: itemRect.width,
+        visible: true,
+      });
+    };
+
+    updateIndicator();
+    window.addEventListener('resize', updateIndicator);
+
+    const observer = typeof ResizeObserver !== 'undefined'
+      ? new ResizeObserver(updateIndicator)
+      : null;
+    if (observer) {
+      observer.observe(nav);
+      if (activeItem) observer.observe(activeItem);
+    }
+
+    return () => {
+      window.removeEventListener('resize', updateIndicator);
+      observer?.disconnect();
+    };
+  }, [pathname]);
 
   const toggleTheme = () => {
     const next = theme === 'dark' ? 'light' : 'dark';
@@ -75,11 +115,21 @@ export default function Header() {
             </span>
           </Link>
 
-          <nav className="rk-nav">
+          <nav className="rk-nav" ref={navRef}>
+            <span
+              className="rk-nav-indicator"
+              style={{
+                transform: `translateX(${navIndicator.left}px)`,
+                width: `${navIndicator.width}px`,
+                opacity: navIndicator.visible ? 1 : 0,
+              }}
+              aria-hidden="true"
+            />
             {NAV.map(({ href, label, icon: Icon }) => (
               <Link
                 key={href}
                 href={href}
+                ref={node => { navItemRefs.current[href] = node; }}
                 className={`rk-nav-item ${isActive(pathname, href) ? 'is-active' : ''}`}
               >
                 <Icon className="rk-i" strokeWidth={1.75} />
