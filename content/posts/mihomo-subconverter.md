@@ -14,6 +14,8 @@ slug: mihomo-subconverter
 
 在线体验：[https://mihomolink.rainif.com/](https://mihomolink.rainif.com/)
 
+一键部署：[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ififi2017/mihomo-subconverter)
+
 ![主界面截图](../../public/images/posts/mihomo-subconverter/hero.jpg)
 
 
@@ -23,6 +25,8 @@ slug: mihomo-subconverter
 
 1. **不知道节点经过谁的手**。订阅链接 = 完整节点配置，发给陌生人的服务等于把代理白送出去。
 2. **服务会挂**。一旦官方实例停机，你的客户端订阅就会拉空。
+3. 新一点的不支持老的 subconverter 规则格式。老一点的又不支持 AnyTLS 等新协议。
+4. [Sub-Store](https://github.com/sub-store-org/Sub-Store)学习成本较高，懒得学。
 
 所以做了一个 1-click 部署到自己 Vercel 的版本。节点解析、规则拼装全部跑在你自己的 Edge Function 上，订阅链接也指向你的域名。
 
@@ -37,19 +41,19 @@ slug: mihomo-subconverter
 
 ## 技术栈
 
-| 层 | 选型 |
-|----|------|
-| 框架 | Next.js 16（App Router）|
-| 部署 | Vercel Edge / Serverless |
-| 规则集 | `.mrs` 二进制（[MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)） |
-| 模板格式 | ACL4SSR / sub-web INI 约定 |
-| License | MIT |
+| 层       | 选型                                                                                  |
+| ------- | ----------------------------------------------------------------------------------- |
+| 框架      | Next.js 16（App Router）                                                              |
+| 部署      | Vercel Edge / Serverless                                                            |
+| 规则集     | `.mrs` 二进制（[MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)） |
+| 模板格式    | ACL4SSR / sub-web INI 约定                                                            |
+| License | MIT                                                                                 |
 
 规则集本身不打包进项目——客户端首次加载时从 MetaCubeX 拉取，配置文件保持纤细。
 
 ## 部署到自己的 Vercel
 
-1. 点 README 里的 **Deploy with Vercel** 按钮
+1. 点[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ififi2017/mihomo-subconverter)按钮
 2. Fork 后授权，**不需要任何环境变量**
 3. 部署完成后到 Vercel Project Settings 绑你自己的域名
 4. 生成的订阅链接会自动用你的域名前缀
@@ -80,3 +84,7 @@ slug: mihomo-subconverter
 ## 后话
 
 工具的初衷是给自己用。代码很短、依赖很少、UI 也只有一屏。如果你的需求只是「把零散节点拼成订阅 + 套个分流规则」，这个轮子够用了。
+
+## 鸣谢
+规则模板：[MetaCubeX](https://github.com/MetaCubeX/meta-rules-dat)  [ACL4SSR](https://github.com/ACL4SSR/ACL4SSR)
+参考项目：[sublink-worker](https://github.com/7Sageer/sublink-worker) [sub-web](https://github.com/CareyWang/sub-web)
