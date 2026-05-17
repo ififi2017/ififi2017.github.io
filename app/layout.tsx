@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import Live2D from '@/components/Live2D';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -52,7 +51,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
           <main className="rk-main">{children}</main>
           <Footer />
-          <Live2D />
         </div>
       </body>
     </html>

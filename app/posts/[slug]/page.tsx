@@ -5,14 +5,16 @@ import TableOfContents from './toc';
 import Comments from '@/components/Comments';
 import { getAllPosts, getPost } from '@/lib/posts';
 
-type Params = { slug: string };
+type RouteParams = { slug: string };
+type PageProps = { params: Promise<RouteParams> };
 
-export async function generateStaticParams(): Promise<Params[]> {
+export async function generateStaticParams(): Promise<RouteParams[]> {
   return getAllPosts().map(p => ({ slug: p.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Params }) {
-  const post = await getPost(params.slug);
+export async function generateMetadata({ params }: PageProps) {
+  const { slug } = await params;
+  const post = await getPost(slug);
   if (!post) return { title: '未找到' };
   return {
     title: post.title,
@@ -23,8 +25,9 @@ export async function generateMetadata({ params }: { params: Params }) {
 
 const formatDate = (d: string) => d.replace(/-/g, ' · ');
 
-export default async function PostPage({ params }: { params: Params }) {
-  const post = await getPost(params.slug);
+export default async function PostPage({ params }: PageProps) {
+  const { slug } = await params;
+  const post = await getPost(slug);
   if (!post) notFound();
 
   return (
