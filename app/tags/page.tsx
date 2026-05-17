@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { getAllTags, getAllCategories } from '@/lib/posts';
 
 export const metadata = { title: '标签' };
@@ -22,10 +23,15 @@ export default function TagsPage() {
 
       <div className="rk-tag-cloud">
         {tags.map(t => (
-          <span key={t.name} className="rk-tag-link" style={{ fontSize: `${sizeFor(t.count)}px` }}>
+          <Link
+            key={t.name}
+            href={`/tags/${encodeURIComponent(t.name)}/`}
+            className="rk-tag-link"
+            style={{ fontSize: `${sizeFor(t.count)}px` }}
+          >
             #{t.name}
             <span className="rk-tag-count">{t.count}</span>
-          </span>
+          </Link>
         ))}
       </div>
 
@@ -35,10 +41,14 @@ export default function TagsPage() {
         <h3 className="rk-section-title">分类</h3>
         <div className="rk-cat-list">
           {categories.map(c => (
-            <div key={c.name} className="rk-cat-card">
+            <Link
+              key={c.name}
+              href={`/categories/${encodeURIComponent(c.name)}/`}
+              className="rk-cat-card"
+            >
               <div className="rk-cat-name">{c.name}</div>
               <div className="rk-cat-count">{String(c.count).padStart(2, '0')} 篇</div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
