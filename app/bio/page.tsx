@@ -37,12 +37,10 @@ export default function BioPage() {
         <section className="rk-bio-section">
           <h3 className="rk-bio-section-title">关于</h3>
           <p>
-            写代码、拍视频、按快门。在 GitHub、YouTube、Instagram 之间来回搬运同一个手感：
-            把折腾过的事说清楚，把光线值得的瞬间留下。
+            热爱使用各类 Vibe Coding 工具。Claude Code、Codex 连轴转。灵感的上限是 Usage。
           </p>
           <p>
-            这里偏好长一点、第一人称的技术 write-up。多过 SEO 友好的标题党；
-            旁人能省下一个晚上的时间就够了。
+            想到什么发什么，概率性月更、年更、甚至可能永远不更。
           </p>
         </section>
 
@@ -51,15 +49,15 @@ export default function BioPage() {
           <ul className="rk-now-list">
             <li>
               <span className="rk-now-dot" />
-              <div>把博客从 Hexo 迁到 Next.js，顺带把过往 EFI 配置整理成可索引的格式。</div>
+              <div>在 Shanghai 当 IT 牛马。</div>
             </li>
             <li>
               <span className="rk-now-dot" />
-              <div>在 YouTube <code>@finiar</code> 更新折腾向短片。</div>
+              <div>手持 Sony A7C2 想打鸟。</div>
             </li>
             <li>
               <span className="rk-now-dot" />
-              <div>偶尔在 Instagram <code>@fi_niar</code> 发镜头之外的东西。</div>
+              <div>偶尔在 Instagram 与 YouTube 上发拍到的东西。</div>
             </li>
           </ul>
         </section>

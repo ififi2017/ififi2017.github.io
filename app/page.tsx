@@ -19,7 +19,6 @@ export default function HomePage() {
         </h1>
         <p className="rk-hero-sub">
           代码 · 视频 · 摄影 · 折腾。把值得留下的瞬间和过程记下来。<br />
-          所有文章用 Markdown 写好，<code>git push</code> 即刻上架。
         </p>
         <div className="rk-hero-actions">
           <Link href="/archive/" className="rk-btn rk-btn-primary">
