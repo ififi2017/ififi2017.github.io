@@ -34,6 +34,51 @@ slug: my-post
 
 Then push to `master`. GitHub Actions builds the static site and deploys it to GitHub Pages.
 
+## Edit Bio
+
+Bio content is no longer hard-coded in React.
+
+Edit the text:
+
+```text
+content/site/bio.md
+```
+
+Edit profile data, links, `/now`, avatar path, and site copy:
+
+```text
+content/site/profile.json
+```
+
+The Bio page at `app/bio/page.tsx` reads both files during static build.
+
+## Obsidian Workflow
+
+This repository can be opened directly as an Obsidian vault.
+
+Recommended setup:
+
+1. Open Obsidian.
+2. Choose **Open folder as vault**.
+3. Select the repository root, or select `content/` if you only want writing files.
+4. Keep posts in `content/posts/`.
+5. Keep Bio content in `content/site/`.
+6. Keep screenshots in `public/images/posts/<slug>/`.
+
+There is a starter article template at:
+
+```text
+content/templates/post.md
+```
+
+If you use Obsidian's Templates core plugin, set the template folder to:
+
+```text
+content/templates
+```
+
+Obsidian wiki links like `[[Some Note]]` are not part of the public renderer. Use normal Markdown links for anything that should work on the website.
+
 ## Images
 
 Post images live under:
@@ -92,7 +137,10 @@ components/
   icons/                Local brand icons
 
 content/posts/          Markdown source posts
+content/site/           Editable Bio/profile content
+content/templates/      Obsidian-friendly post template
 lib/posts.ts            Frontmatter + Markdown pipeline
+lib/site.ts             Bio/profile content loader
 scripts/generate-rss.mjs
 public/                 Static assets, CNAME, avatars, post images
 .github/workflows/      GitHub Pages deploy workflow
