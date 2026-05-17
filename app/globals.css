@@ -300,11 +300,12 @@ body { margin: 0; }
 .rk-screen {
   max-width: 760px;
   margin: 0 auto;
-  padding: 56px 32px 96px;
+  padding: 56px 32px 64px;
   opacity: 1;
 }
 .rk-archive, .rk-tags-screen { max-width: 880px; }
 .rk-screen.rk-post { max-width: 1040px; }
+.rk-screen.rk-bio { padding-bottom: 32px; }
 
 /* Optional enter reveal — relies on JS toggling .rk-screen-enter on mount.
    Defaults to fully visible so iframes / SSR / reduced-motion always see content. */
@@ -877,7 +878,7 @@ body { margin: 0; }
 .rk-footer {
   border-top: 1px solid var(--border-1);
   padding: 32px 0;
-  margin-top: 64px;
+  margin-top: 40px;
 }
 .rk-footer-inner {
   max-width: 1160px; margin: 0 auto;
