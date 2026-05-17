@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fi_niaR</title>
+    <link>https://rainif.com/</link>
+    <atom:link href="https://rainif.com/rss.xml" rel="self" type="application/rss+xml" />
+    <description>代码 · 视频 · 摄影 · 折腾。写下来才算数。</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 21 May 2020 00:00:00 GMT</lastBuildDate>
+    <generator>rainif-blog (Next.js)</generator>
+    <item>
+      <title>微星 MPG Z390 GAMING PLUS macOS Catalina 11.1 OpenCore EFI配置文件</title>
+      <link>https://rainif.com/posts/msi-z390-gaming-plus-macos-catalina-opencore-efi/</link>
+      <guid isPermaLink="true">https://rainif.com/posts/msi-z390-gaming-plus-macos-catalina-opencore-efi/</guid>
+      <pubDate>Thu, 21 May 2020 00:00:00 GMT</pubDate>
+      <category>macOS</category>
+      <author>if@rainif.com (fi niaR)</author>
+      <description><![CDATA[适用于微星 MPG Z390 GAMING PLUS 主板 (i9-9900K / RX 5700 XT) 的 macOS 11.1 OpenCore 0.6.5 EFI 配置文件，各功能均完善。]]></description>
+    </item>
+    <item>
+      <title>NUC5i7RYH macOS Catalina 10.15.4 OpenCore EFI配置文件</title>
+      <link>https://rainif.com/posts/nuc5i7ryh-macos-catalina-opencore-efi/</link>
+      <guid isPermaLink="true">https://rainif.com/posts/nuc5i7ryh-macos-catalina-opencore-efi/</guid>
+      <pubDate>Mon, 18 May 2020 00:00:00 GMT</pubDate>
+      <category>macOS</category>
+      <author>if@rainif.com (fi niaR)</author>
+      <description><![CDATA[适用于 Intel NUC5i7RYH (i7-5557U / Iris Graphics 6100) 的 macOS Catalina 10.15.4 OpenCore EFI 配置文件。]]></description>
+    </item>
+    <item>
+      <title>联想 ThinkCentre M828z-N000 macOS Catalina 10.15.4 OpenCore EFI配置文件</title>
+      <link>https://rainif.com/posts/lenovo-thinkcentre-m828z-macos-catalina-opencore-efi/</link>
+      <guid isPermaLink="true">https://rainif.com/posts/lenovo-thinkcentre-m828z-macos-catalina-opencore-efi/</guid>
+      <pubDate>Mon, 18 May 2020 00:00:00 GMT</pubDate>
+      <category>macOS</category>
+      <author>if@rainif.com (fi niaR)</author>
+      <description><![CDATA[适用于联想 ThinkCentre M828z-N000 (i5-9500 / UHD 630) 的 macOS Catalina 10.15.4 OpenCore EFI 配置文件，包含 PM981 与非 PM981 固态硬盘的安装方法。]]></description>
+    </item>
+    <item>
+      <title>如何在 MSDN I Tell You 上下载Windows镜像</title>
+      <link>https://rainif.com/posts/download-windows-from-msdn-itellyou/</link>
+      <guid isPermaLink="true">https://rainif.com/posts/download-windows-from-msdn-itellyou/</guid>
+      <pubDate>Thu, 27 Feb 2020 00:00:00 GMT</pubDate>
+      <category>Windows</category>
+      <author>if@rainif.com (fi niaR)</author>
+      <description><![CDATA[介绍如何在 MSDN I Tell You 网站上获取 Windows XP、Windows 7、Windows 10 等系统镜像的下载链接，并使用迅雷等支持电驴协议的下载工具进行下载。]]></description>
+    </item>
+  </channel>
+</rss>
