@@ -14,6 +14,10 @@ slug: mihomo-subconverter
 
 在线体验：[https://mihomolink.rainif.com/](https://mihomolink.rainif.com/)
 
+<!-- 扔图进 public/images/posts/mihomo-subconverter/，文件名对上就会显示
+![主界面截图](/images/posts/mihomo-subconverter/hero.png)
+-->
+
 ## 为什么写这个
 
 公网上的订阅转换服务（subconverter / sub-web 之类）功能很全，但有两个长期不舒服的地方：
@@ -66,6 +70,10 @@ slug: mihomo-subconverter
 
 4. 点 Generate，复制生成的订阅链接
 5. 粘进 Clash Verge / Clash Party / Clash Mi 等任意 Mihomo 内核客户端，设个 1 小时刷新
+
+<!--
+![生成后的订阅链接](/images/posts/mihomo-subconverter/generate.png)
+-->
 
 ## 兼容性说明
 

@@ -14,6 +14,10 @@ slug: off-work-countdown
 
 在线体验：[https://off.rainif.com/zh-CN](https://off.rainif.com/zh-CN)
 
+<!-- 扔图进 public/images/posts/off-work-countdown/，文件名对上就会显示
+![主界面截图](/images/posts/off-work-countdown/hero.png)
+-->
+
 ## 为什么写这个
 
 每天上班最熬人的不是工作本身，而是你不知道还有多久才能下班。盯着系统时钟看不出"还剩多少"，要心算；做日程的 App 又太重，只想要一个开着不打扰、抬眼就能看见的小窗口。
@@ -30,6 +34,10 @@ slug: off-work-countdown
 - **PWA 离线支持**：装到桌面 / 主屏后断网也能用
 - **多语言**：i18n 框架，目前内置中英文，欢迎贡献其他语言
 - **响应式**：手机、平板、桌面都能看
+
+<!--
+![运行中的倒计时](/images/posts/off-work-countdown/running.png)
+-->
 
 ## 技术栈
 
