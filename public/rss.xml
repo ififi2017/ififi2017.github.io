@@ -6,8 +6,17 @@
     <atom:link href="https://rainif.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>代码 · 视频 · 摄影 · 折腾。写下来才算数。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 21 May 2020 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 17 May 2026 00:00:00 GMT</lastBuildDate>
     <generator>rainif-blog (Next.js)</generator>
+    <item>
+      <title>下班倒计时：一个看着时间走的小工具</title>
+      <link>https://rainif.com/posts/off-work-countdown/</link>
+      <guid isPermaLink="true">https://rainif.com/posts/off-work-countdown/</guid>
+      <pubDate>Sun, 17 May 2026 00:00:00 GMT</pubDate>
+      <category>项目</category>
+      <author>if@rainif.com (fi niaR)</author>
+      <description><![CDATA[一个用 Next.js 写的下班倒计时网页。设定上下班时间，看一个圆形进度条把今天剩下的工时一点点磨完。支持 PWA 离线、多语言、动画渐变背景与可选的下班前 15 分钟提醒。]]></description>
+    </item>
     <item>
       <title>微星 MPG Z390 GAMING PLUS macOS Catalina 11.1 OpenCore EFI配置文件</title>
       <link>https://rainif.com/posts/msi-z390-gaming-plus-macos-catalina-opencore-efi/</link>
