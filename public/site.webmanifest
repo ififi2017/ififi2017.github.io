@@ -1,0 +1,21 @@
+{
+  "name": "fi_niaR · a quiet corner",
+  "short_name": "fi_niaR",
+  "description": "关于 macOS、OpenCore、Hackintosh、与那些值得记下来的零碎。",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "theme_color": "#3730A3",
+  "background_color": "#FAFAF7",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
