@@ -1,0 +1,44 @@
+{
+  "name": "fi niaR",
+  "handle": "@ififi2017",
+  "avatar": "/avatar-256.png",
+  "lede": ["write it down,", "if it rains."],
+  "now": [
+    "在 Shanghai 当 IT 牛马。",
+    "手持 Sony A7C2 想打鸟。",
+    "偶尔在 Instagram 与 YouTube 上发拍到的东西。"
+  ],
+  "links": [
+    {
+      "type": "email",
+      "label": "if@rainif.com",
+      "href": "mailto:if@rainif.com"
+    },
+    {
+      "type": "github",
+      "label": "github.com/ififi2017",
+      "href": "https://github.com/ififi2017"
+    },
+    {
+      "type": "youtube",
+      "label": "youtube.com/@finiar",
+      "href": "https://www.youtube.com/@finiar"
+    },
+    {
+      "type": "instagram",
+      "label": "instagram.com/fi_niar",
+      "href": "https://www.instagram.com/fi_niar/"
+    },
+    {
+      "type": "rss",
+      "label": "rainif.com/rss.xml",
+      "href": "/rss.xml"
+    }
+  ],
+  "site": [
+    "由 Next.js + React + Markdown 驱动。文章源文件在 `content/posts/*.md`，`git push` 即部署。",
+    "搜索 / 评论 / RSS 均为构建时生成；零运行时后端。"
+  ],
+  "version": "v3.0.0",
+  "license": "MIT"
+}

@@ -23,9 +23,12 @@ export default function Header() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [mounted, setMounted] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [searchShortcut, setSearchShortcut] = useState('⌘K');
 
   useEffect(() => {
     setMounted(true);
+    const platform = navigator.platform || navigator.userAgent;
+    setSearchShortcut(/Mac|iPhone|iPad|iPod/i.test(platform) ? '⌘K' : 'Ctrl K');
     const saved = typeof window !== 'undefined'
       ? (localStorage.getItem('rk-theme') as 'light' | 'dark' | null)
       : null;
@@ -106,11 +109,11 @@ export default function Header() {
             <button
               type="button"
               className="rk-icon-btn rk-search-btn"
-              title="搜索 ⌘K"
+              title={`搜索 ${searchShortcut}`}
               onClick={() => setSearchOpen(true)}
             >
               <Search className="rk-i" strokeWidth={1.75} />
-              <kbd>⌘K</kbd>
+              <kbd>{searchShortcut}</kbd>
             </button>
             <button
               type="button"
