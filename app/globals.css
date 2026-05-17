@@ -1520,7 +1520,7 @@ a.rk-nav-item { text-decoration: none; }
   }
 
   .rk-footer {
-    margin-top: 48px;
+    margin-top: 24px;
     padding: 24px 0 32px;
   }
 
@@ -1547,7 +1547,11 @@ a.rk-nav-item { text-decoration: none; }
 @media (max-width: 560px) {
   .rk-screen {
     padding-inline: 16px;
-    padding-bottom: 64px;
+    padding-bottom: 28px;
+  }
+
+  .rk-footer {
+    margin-top: 16px;
   }
 
   .rk-header-inner {
