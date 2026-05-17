@@ -69,6 +69,21 @@ const extractToc = (markdown: string): TocItem[] => {
   return toc;
 };
 
+/**
+ * Rewrite Obsidian-friendly relative asset paths to web-absolute paths.
+ *
+ * In markdown source we write image links as `../../public/images/...` so that
+ * Obsidian (vault root = repo root) can resolve them when previewing
+ * `content/posts/<slug>.md`. Before rendering we collapse the `../../public/`
+ * prefix to `/` so the resulting HTML uses the same URLs the browser serves.
+ *
+ * Matches both standard markdown images and inline HTML img src attributes.
+ */
+const rewriteAssetPaths = (markdown: string): string =>
+  markdown
+    .replace(/(!\[[^\]]*\]\()\.\.\/\.\.\/public\//g, '$1/')
+    .replace(/(<img[^>]+src=["'])\.\.\/\.\.\/public\//g, '$1/');
+
 const renderMarkdown = async (markdown: string): Promise<string> => {
   const file = await unified()
     .use(remarkParse)
@@ -77,7 +92,7 @@ const renderMarkdown = async (markdown: string): Promise<string> => {
     .use(rehypeSlug)
     .use(rehypeAutolinkHeadings, { behavior: 'wrap' })
     .use(rehypeStringify, { allowDangerousHtml: true })
-    .process(markdown);
+    .process(rewriteAssetPaths(markdown));
   return String(file);
 };
 
