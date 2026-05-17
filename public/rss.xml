@@ -18,6 +18,15 @@
       <description><![CDATA[一个用 Next.js 写的下班倒计时网页。设定上下班时间，看一个圆形进度条把今天剩下的工时一点点磨完。支持 PWA 离线、多语言、动画渐变背景与可选的下班前 15 分钟提醒。]]></description>
     </item>
     <item>
+      <title>Mihomo Subconverter：一键部署到 Vercel 的订阅转换器</title>
+      <link>https://rainif.com/posts/mihomo-subconverter/</link>
+      <guid isPermaLink="true">https://rainif.com/posts/mihomo-subconverter/</guid>
+      <pubDate>Sun, 17 May 2026 00:00:00 GMT</pubDate>
+      <category>项目</category>
+      <author>if@rainif.com (fi niaR)</author>
+      <description><![CDATA[把代理节点链接 / 订阅地址转成 Mihomo / Clash 配置文件的小工具。Next.js 写的，一键部署到自己的 Vercel；规则模板兼容 ACL4SSR、sub-web INI 写法，可以无缝替换旧订阅链接。]]></description>
+    </item>
+    <item>
       <title>微星 MPG Z390 GAMING PLUS macOS Catalina 11.1 OpenCore EFI配置文件</title>
       <link>https://rainif.com/posts/msi-z390-gaming-plus-macos-catalina-opencore-efi/</link>
       <guid isPermaLink="true">https://rainif.com/posts/msi-z390-gaming-plus-macos-catalina-opencore-efi/</guid>
