@@ -7,7 +7,10 @@ type RouteParams = { name: string };
 type PageProps = { params: Promise<RouteParams> };
 
 export async function generateStaticParams(): Promise<RouteParams[]> {
-  return getAllCategories().map(c => ({ name: encodeURIComponent(c.name) }));
+  // Use the raw category name (e.g. "项目") so Next.js writes a UTF-8 directory.
+  // GitHub Pages decodes the requested URL before matching, so a request for
+  // /categories/%E9%A1%B9%E7%9B%AE/ resolves to /categories/项目/index.html.
+  return getAllCategories().map(c => ({ name: c.name }));
 }
 
 export async function generateMetadata({ params }: PageProps) {

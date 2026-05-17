@@ -7,7 +7,10 @@ type RouteParams = { name: string };
 type PageProps = { params: Promise<RouteParams> };
 
 export async function generateStaticParams(): Promise<RouteParams[]> {
-  return getAllTags().map(t => ({ name: encodeURIComponent(t.name) }));
+  // Use the raw tag name so the on-disk folder is UTF-8 (e.g. "黑苹果").
+  // See note in app/categories/[name]/page.tsx — GitHub Pages decodes the URL
+  // before matching, so percent-encoded requests still hit the right file.
+  return getAllTags().map(t => ({ name: t.name }));
 }
 
 export async function generateMetadata({ params }: PageProps) {
