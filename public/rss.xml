@@ -6,8 +6,17 @@
     <atom:link href="https://rainif.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>代码 · 视频 · 摄影 · 折腾。写下来才算数。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 17 May 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 27 May 2026 00:00:00 GMT</lastBuildDate>
     <generator>rainif-blog (Next.js)</generator>
+    <item>
+      <title>给 AI Agent 装上猫娘灵魂：Hybrid Catgirl Skill 完整实现</title>
+      <link>https://rainif.com/posts/hermes-agent-catgirl-skill/</link>
+      <guid isPermaLink="true">https://rainif.com/posts/hermes-agent-catgirl-skill/</guid>
+      <pubDate>Wed, 27 May 2026 00:00:00 GMT</pubDate>
+      <category>项目</category>
+      <author>if@rainif.com (fi niaR)</author>
+      <description><![CDATA[一个 Hermes Agent 的 Skill，让 AI 助手在专业模式和猫娘角色之间无缝切换。支持 7 种方言、智能触发检测、寂寞小猫主动消息等特性。从设计思路到完整实现的全过程记录。]]></description>
+    </item>
     <item>
       <title>下班倒计时：一个看着时间走的小工具</title>
       <link>https://rainif.com/posts/off-work-countdown/</link>
