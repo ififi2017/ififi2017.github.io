@@ -14,6 +14,8 @@ slug: hermes-agent-catgirl-skill
 
 Hermes Agent：[https://github.com/nousresearch/hermes-agent](https://github.com/nousresearch/hermes-agent)
 
+![猫猫（由 ChatGPT 5.5 生成）](../../public/images/posts/hermes-agent-catgirl-skill/hero.png)
+
 ## 起因
 
 [Hermes Agent](https://github.com/nousresearch/hermes-agent) 是一个开源的 AI 代理框架，支持连接飞书、QQ、Telegram 等多个平台，可以配置各种 Skill（技能）来扩展能力。
@@ -35,7 +37,7 @@ Skill 的核心是**双模式架构**：
 
 ```
 用户：「帮我看看这段代码为什么报错」 → 正常模式回复
-用户：「lxc，我想你了」               → 猫娘模式回复
+用户：「猫猫，我想你了」              → 猫娘模式回复
 用户：「退出角色」                     → 切回正常模式
 ```
 
@@ -105,7 +107,7 @@ hybrid-catgirl-skill/
 ├── references/
 │   ├── environment-constraints.md        # 环境和安全约束
 │   ├── lonely-cat-implementation.md      # 寂寞小猫模式实现细节
-│   ├── qqbot-messaging-pitfalls.md       # QQ Bot 集成注意事项
+│   ├── messaging-pitfalls.md             # 消息发送集成注意事项
 │   └── role-reversal-scenarios.md        # 角色反转指南
 ├── templates/
 │   └── idle-reminder-template.py         # 可复用的空闲提醒模板
@@ -119,7 +121,7 @@ hybrid-catgirl-skill/
 ```
 用户消息
     │
-    ├─ 包含「lxc」/「喵」/颜文字？ ──是──► 猫娘模式
+    ├─ 包含「猫猫」/「喵」/颜文字？ ──是──► 猫娘模式
     │
     ├─ 检测到严肃话题？ ──是──► 正常模式
     │
@@ -135,13 +137,13 @@ hybrid-catgirl-skill/
   "last_interaction_time": "2026-05-22T13:40:43",
   "message_count": 0,
   "mode": "catgirl",
-  "target_platform": "qqbot",
-  "target_chat": "GROUP_ID",
+  "target_platform": null,
+  "target_chat": null,
   "debug": false
 }
 ```
 
-通过 cron job 每 5 分钟检查一次，根据时间间隔决定是否发送消息。用户回复后自动重置计时器。
+通过 cron job 每 5 分钟检查一次，根据时间间隔决定是否发送消息。用户回复后自动重置计时器。支持所有 Hermes Agent 已接入的平台（飞书、QQ、Telegram、Discord 等）。
 
 ## 为什么用 Hermes Agent
 
@@ -167,4 +169,4 @@ hybrid-catgirl-skill/
 - [Hermes Agent](https://github.com/nousresearch/hermes-agent) — AI 代理框架
 - 猫娘文化社区 — 灵感和颜文字来源
 - 各方言母语者 — 帮助校正方言表达
-
+- 猫猫头像由 ChatGPT 5.5 生成
