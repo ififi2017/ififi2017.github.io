@@ -12,7 +12,8 @@ export default function ArchivePage() {
     <div className="rk-screen rk-archive">
       <header className="rk-page-head">
         <div className="rk-section-tag">ARCHIVE</div>
-        <h1 className="rk-page-title">归档 · <em>everything written</em></h1>
+        <h1 className="rk-page-title">归档</h1>
+        <p className="rk-archive-signature">Everything written, kept in order.</p>
         <p className="rk-page-sub">按时间倒序排列。共 {total} 篇。</p>
       </header>
 
@@ -21,16 +22,18 @@ export default function ArchivePage() {
           <div className="rk-archive-year-head">
             <span className="rk-archive-year-num">{g.year}</span>
             <span className="rk-archive-year-count">{String(g.posts.length).padStart(2, '0')} 篇</span>
-            <div className="rk-archive-rule" />
           </div>
           <ol className="rk-archive-list">
             {g.posts.map(p => (
               <li key={p.slug}>
                 <Link href={`/posts/${p.slug}/`} className="rk-archive-link">
-                  <span className="rk-archive-date">{p.date.slice(5).replace('-', ' · ')}</span>
-                  <span className="rk-archive-title">{p.title}</span>
-                  <span className="rk-archive-cat">
-                    {p.category}
+                  <span className="rk-archive-meta">
+                    <span className="rk-archive-date">{p.date.slice(5).replace('-', '.')}</span>
+                    <span className="rk-archive-cat">{p.category}</span>
+                    <span>{p.readingMinutes} 分钟</span>
+                  </span>
+                  <span className="rk-archive-main">
+                    <span className="rk-archive-title">{p.title}</span>
                     <ArrowRight className="rk-i rk-archive-arrow" strokeWidth={1.75} />
                   </span>
                 </Link>

@@ -5,14 +5,14 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { MotionConfig, motion } from 'motion/react';
-import { Home, Archive, Tag, User, Search, Sun, Moon } from 'lucide-react';
+import { Search, Sun, Moon } from 'lucide-react';
 import SearchModal from '@/components/SearchModal';
 
 const NAV = [
-  { href: '/',        label: '首页', icon: Home    },
-  { href: '/archive', label: '归档', icon: Archive },
-  { href: '/tags',    label: '标签', icon: Tag     },
-  { href: '/bio',     label: '关于', icon: User    },
+  { href: '/',        label: '首页' },
+  { href: '/archive', label: '归档' },
+  { href: '/tags',    label: '标签' },
+  { href: '/bio',     label: '关于' },
 ];
 
 const isActive = (pathname: string, href: string) =>
@@ -81,13 +81,14 @@ export default function Header() {
 
           <MotionConfig reducedMotion="user">
             <nav className="rk-nav">
-              {NAV.map(({ href, label, icon: Icon }) => {
+              {NAV.map(({ href, label }) => {
                 const active = isActive(pathname, href);
                 return (
                   <Link
                     key={href}
                     href={href}
                     className={`rk-nav-item ${active ? 'is-active' : ''}`}
+                    aria-current={active ? 'page' : undefined}
                   >
                     {active && (
                       <motion.span
@@ -97,7 +98,6 @@ export default function Header() {
                         aria-hidden="true"
                       />
                     )}
-                    <Icon className="rk-i" strokeWidth={1.75} />
                     <span className="rk-nav-label">{label}</span>
                   </Link>
                 );

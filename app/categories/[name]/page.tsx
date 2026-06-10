@@ -7,10 +7,14 @@ type RouteParams = { name: string };
 type PageProps = { params: Promise<RouteParams> };
 
 export async function generateStaticParams(): Promise<RouteParams[]> {
-  // Use the raw category name (e.g. "项目") so Next.js writes a UTF-8 directory.
-  // GitHub Pages decodes the requested URL before matching, so a request for
-  // /categories/%E9%A1%B9%E7%9B%AE/ resolves to /categories/项目/index.html.
-  return getAllCategories().map(c => ({ name: c.name }));
+  const categories = getAllCategories().map(({ name }) => ({ name }));
+  if (process.env.NODE_ENV !== 'development') return categories;
+
+  // See the matching development-only compatibility note in the tag route.
+  return categories.flatMap(({ name }) => {
+    const encoded = encodeURIComponent(name);
+    return encoded === name ? [{ name }] : [{ name }, { name: encoded }];
+  });
 }
 
 export async function generateMetadata({ params }: PageProps) {
@@ -26,7 +30,7 @@ export default async function CategoryPage({ params }: PageProps) {
   if (posts.length === 0) notFound();
 
   return (
-    <div className="rk-screen rk-archive">
+    <div className="rk-screen rk-archive rk-taxonomy-page">
       <Link href="/tags/" className="rk-back">
         <ArrowLeft className="rk-i" strokeWidth={1.75} /> 分类
       </Link>
@@ -34,6 +38,7 @@ export default async function CategoryPage({ params }: PageProps) {
       <header className="rk-page-head">
         <div className="rk-section-tag">CATEGORY</div>
         <h1 className="rk-page-title">{decoded}</h1>
+        <p className="rk-archive-signature">A collection of related writing.</p>
         <p className="rk-page-sub">共 {posts.length} 篇文章。</p>
       </header>
 
@@ -41,9 +46,13 @@ export default async function CategoryPage({ params }: PageProps) {
         {posts.map(p => (
           <li key={p.slug}>
             <Link href={`/posts/${p.slug}/`} className="rk-archive-link">
-              <span className="rk-archive-date">{p.date.slice(5).replace('-', ' · ')}</span>
-              <span className="rk-archive-title">{p.title}</span>
-              <span className="rk-archive-cat">
+              <span className="rk-archive-meta">
+                <span className="rk-archive-date">{p.date.replace(/-/g, '.')}</span>
+                <span className="rk-archive-cat">{p.category}</span>
+                <span>{p.readingMinutes} 分钟</span>
+              </span>
+              <span className="rk-archive-main">
+                <span className="rk-archive-title">{p.title}</span>
                 <ArrowRight className="rk-i rk-archive-arrow" strokeWidth={1.75} />
               </span>
             </Link>

@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import type { PostMeta } from '@/lib/posts';
 
-const formatDate = (d: string) => d.replace(/-/g, ' · ');
+const formatDate = (d: string) => d.replace(/-/g, '.');
 
 export default function PostCard({ post }: { post: PostMeta }) {
   return (
@@ -10,15 +10,9 @@ export default function PostCard({ post }: { post: PostMeta }) {
       <Link href={`/posts/${post.slug}/`} className="rk-card-link" aria-label={post.title}>
         <div className="rk-card-body">
           <div className="rk-card-meta">
+            <span className="rk-card-category">{post.category}</span>
             <span>{formatDate(post.date)}</span>
-            {post.updated && (
-              <>
-                <span className="rk-dot">·</span>
-                <span>UPDATED {formatDate(post.updated)}</span>
-              </>
-            )}
-            <span className="rk-dot">·</span>
-            <span>{post.readingMinutes} MIN</span>
+            <span>{post.readingMinutes} min read</span>
           </div>
 
           <h2 className="rk-card-title">
@@ -32,7 +26,7 @@ export default function PostCard({ post }: { post: PostMeta }) {
               {post.tags.map(t => <span key={t} className="rk-tag">#{t}</span>)}
             </div>
             <span className="rk-card-arrow">
-              阅读 <ArrowRight className="rk-i" strokeWidth={1.75} />
+              阅读 <ArrowUpRight className="rk-i" strokeWidth={1.75} />
             </span>
           </div>
         </div>

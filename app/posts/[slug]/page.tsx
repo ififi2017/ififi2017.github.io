@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
-const formatDate = (d: string) => d.replace(/-/g, ' · ');
+const formatDate = (d: string) => d.replace(/-/g, '.');
 
 export default async function PostPage({ params }: PageProps) {
   const { slug } = await params;
@@ -38,19 +38,24 @@ export default async function PostPage({ params }: PageProps) {
 
       <header className="rk-post-header">
         <div className="rk-post-meta">
-          <span className="rk-meta-item">
-            <Calendar className="rk-i" strokeWidth={1.75} />{formatDate(post.date)}
-          </span>
-          {post.updated && (
+          <span className="rk-meta-group">
             <span className="rk-meta-item">
-              <CalendarCheck className="rk-i" strokeWidth={1.75} />UPDATED {formatDate(post.updated)}
+              <Calendar className="rk-i" strokeWidth={1.75} />{formatDate(post.date)}
             </span>
-          )}
-          <span className="rk-meta-item">
-            <Folder className="rk-i" strokeWidth={1.75} />{post.category}
+            {post.updated && (
+              <span className="rk-meta-item">
+                <CalendarCheck className="rk-i" strokeWidth={1.75} />更新于 {formatDate(post.updated)}
+              </span>
+            )}
           </span>
-          <span className="rk-meta-item">
-            <Clock className="rk-i" strokeWidth={1.75} />{post.readingMinutes} MIN
+
+          <span className="rk-meta-group">
+            <span className="rk-meta-item">
+              <Folder className="rk-i" strokeWidth={1.75} />{post.category}
+            </span>
+            <span className="rk-meta-item">
+              <Clock className="rk-i" strokeWidth={1.75} />{post.readingMinutes} 分钟
+            </span>
           </span>
         </div>
         <h1 className="rk-post-title">{post.title}</h1>

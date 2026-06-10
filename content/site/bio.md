@@ -2,4 +2,4 @@
 
 想到什么发什么，概率性月更、年更、甚至可能永远不更。
 
-感谢 Claude Code 重构了这整个 Blog。
+感谢 Claude Code、Codex 和 [taste-skill](https://www.tasteskill.dev/) 一起重构了这整个 Blog。
