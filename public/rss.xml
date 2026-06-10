@@ -6,8 +6,17 @@
     <atom:link href="https://rainif.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>代码 · 视频 · 摄影 · 折腾。写下来才算数。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 27 May 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2026 00:00:00 GMT</lastBuildDate>
     <generator>rainif-blog (Next.js)</generator>
+    <item>
+      <title>用 taste-skill 重构这个博客：从能用到有自己的样子</title>
+      <link>https://rainif.com/posts/rebuilding-blog-ui-with-taste-skill/</link>
+      <guid isPermaLink="true">https://rainif.com/posts/rebuilding-blog-ui-with-taste-skill/</guid>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+      <category>项目</category>
+      <author>if@rainif.com (fi niaR)</author>
+      <description><![CDATA[在已有 Next.js 博客上，用 taste-skill 约束设计方向，再让 Codex 逐页实现、浏览器验证。记录这次从首页、文章、归档到 Bio 与标签页的完整 UI 重构过程。]]></description>
+    </item>
     <item>
       <title>给 AI Agent 装上猫娘灵魂：Hybrid Catgirl Skill 完整实现</title>
       <link>https://rainif.com/posts/hermes-agent-catgirl-skill/</link>

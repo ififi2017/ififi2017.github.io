@@ -490,7 +490,7 @@ body { margin: 0; }
 }
 
 .rk-bio-now {
-  grid-row: span 2;
+  grid-row: auto;
 }
 
 .rk-bio .rk-now-list {
@@ -567,7 +567,8 @@ body { margin: 0; }
 }
 
 .rk-bio-site {
-  margin-top: 50px;
+  grid-column: 1 / -1;
+  margin-top: 64px;
 }
 
 .rk-bio-site-copy p {
@@ -672,6 +673,7 @@ body { margin: 0; }
   }
 
   .rk-bio-site {
+    grid-column: auto;
     margin-top: 0;
   }
 
