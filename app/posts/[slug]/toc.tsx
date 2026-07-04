@@ -30,20 +30,31 @@ export default function TableOfContents({ items }: { items: TocItem[] }) {
 
   if (items.length === 0) return null;
 
+  const list = (
+    <ol className="rk-toc-list">
+      {items.map(item => (
+        <li
+          key={item.id}
+          className={item.id === activeId ? 'is-active' : ''}
+          style={{ paddingLeft: item.level === 3 ? 12 : 0 }}
+        >
+          <a href={`#${item.id}`}>{item.text}</a>
+        </li>
+      ))}
+    </ol>
+  );
+
   return (
-    <aside className="rk-toc">
-      <div className="rk-toc-label">CONTENTS</div>
-      <ol className="rk-toc-list">
-        {items.map(item => (
-          <li
-            key={item.id}
-            className={item.id === activeId ? 'is-active' : ''}
-            style={{ paddingLeft: item.level === 3 ? 12 : 0 }}
-          >
-            <a href={`#${item.id}`}>{item.text}</a>
-          </li>
-        ))}
-      </ol>
-    </aside>
+    <>
+      <aside className="rk-toc">
+        <div className="rk-toc-label">CONTENTS</div>
+        {list}
+      </aside>
+      {/* Collapsible fallback for narrow screens where the sidebar is hidden */}
+      <details className="rk-toc-mobile">
+        <summary>目录</summary>
+        {list}
+      </details>
+    </>
   );
 }

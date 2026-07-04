@@ -3470,3 +3470,179 @@ body {
     font-size: 13px;
   }
 }
+
+/* =========================================================================
+   Shiki syntax highlighting — dual theme (vitesse-light / vitesse-dark).
+   Shiki inlines light-theme colors and carries dark values in --shiki-dark*;
+   we flip them under [data-theme="dark"], and keep the site's code surface
+   tokens instead of the theme's own background.
+   ========================================================================= */
+.rk-prose pre.shiki {
+  background: var(--bg-code) !important;
+}
+[data-theme="dark"] .rk-prose .shiki,
+[data-theme="dark"] .rk-prose .shiki span {
+  color: var(--shiki-dark) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+
+/* =========================================================================
+   Post footer navigation — prev/next + related posts
+   ========================================================================= */
+.rk-post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border-1);
+}
+.rk-post-nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding: 16px 18px;
+  border: 1px solid var(--border-1);
+  border-radius: 10px;
+  color: var(--fg-1);
+  transition: border-color var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out);
+}
+.rk-post-nav-link:hover {
+  border-color: color-mix(in oklab, var(--brand-accent) 48%, var(--border-1));
+  background: color-mix(in oklab, var(--bg-surface) 72%, transparent);
+  color: var(--fg-1);
+}
+.rk-post-nav-next { text-align: right; align-items: flex-end; }
+.rk-post-nav-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--fg-3);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.rk-post-nav-label .rk-i { width: 13px; height: 13px; }
+.rk-post-nav-title {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.rk-post-nav-link:hover .rk-post-nav-title { color: var(--brand-accent); }
+
+.rk-related {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-1);
+}
+.rk-related-head {
+  margin-bottom: 14px;
+  color: var(--fg-3);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.rk-related-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.rk-related-link {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 10px 2px;
+  border-bottom: 1px solid var(--border-1);
+  color: var(--fg-1);
+  transition: color var(--dur-base) var(--ease-out);
+}
+.rk-related-list li:last-child .rk-related-link { border-bottom: 0; }
+.rk-related-link:hover { color: var(--brand-accent); border-bottom-color: var(--border-1); }
+.rk-related-title {
+  font-size: 15px;
+  font-weight: 550;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  min-width: 0;
+}
+.rk-related-meta {
+  flex-shrink: 0;
+  color: var(--fg-3);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .02em;
+}
+
+@media (max-width: 640px) {
+  .rk-post-nav { grid-template-columns: 1fr; }
+  .rk-post-nav-next { text-align: left; align-items: flex-start; }
+  .rk-related-link { flex-direction: column; gap: 3px; }
+}
+
+/* =========================================================================
+   Mobile collapsible table of contents
+   ========================================================================= */
+.rk-toc-mobile { display: none; }
+
+@media (max-width: 900px) {
+  .rk-toc-mobile {
+    display: block;
+    margin-bottom: 28px;
+    padding: 4px 16px;
+    border: 1px solid var(--border-1);
+    border-radius: 10px;
+    background: color-mix(in oklab, var(--bg-surface) 62%, transparent);
+  }
+  .rk-toc-mobile summary {
+    cursor: pointer;
+    padding: 10px 0;
+    color: var(--fg-2);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    user-select: none;
+  }
+  .rk-toc-mobile[open] summary {
+    border-bottom: 1px solid var(--border-1);
+    margin-bottom: 10px;
+  }
+  .rk-toc-mobile .rk-toc-list {
+    list-style: none;
+    margin: 0 0 12px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .rk-toc-mobile .rk-toc-list a {
+    display: block;
+    padding: 4px 0 4px 12px;
+    border-left: 1px solid var(--border-1);
+    border-bottom: 0;
+    color: var(--fg-2);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .rk-toc-mobile .rk-toc-list li.is-active a {
+    color: var(--brand-accent);
+    border-left-color: var(--brand-accent);
+  }
+}
+
+/* medium-zoom lightbox must sit above the sticky header (z-index 50) */
+.medium-zoom-overlay,
+.medium-zoom-image--opened { z-index: 300; }

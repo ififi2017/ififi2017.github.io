@@ -36,6 +36,11 @@ export const metadata: Metadata = {
     ],
   },
   manifest: '/site.webmanifest',
+  alternates: {
+    types: {
+      'application/rss+xml': [{ url: '/rss.xml', title: 'fi_niaR RSS' }],
+    },
+  },
   openGraph: {
     title: 'fi_niaR · a quiet corner',
     description: '关于 macOS、OpenCore、Hackintosh、与那些值得记下来的零碎。',
@@ -45,6 +50,11 @@ export const metadata: Metadata = {
     type: 'website',
   },
 };
+
+// 隐私友好的轻量访问统计（无 cookie）。在 https://www.goatcounter.com 注册后
+// 把站点代码填到这里（例如注册的是 rainif.goatcounter.com 就填 'rainif'）。
+// 留空则完全不加载统计脚本。
+const GOATCOUNTER_CODE = '';
 
 const themeBootstrap = `
 (function() {
@@ -69,6 +79,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className="rk-main">{children}</main>
           <Footer />
         </div>
+        {GOATCOUNTER_CODE && (
+          <script
+            async
+            data-goatcounter={`https://${GOATCOUNTER_CODE}.goatcounter.com/count`}
+            src="https://gc.zgo.at/count.js"
+          />
+        )}
       </body>
     </html>
   );

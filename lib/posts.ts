@@ -7,7 +7,11 @@ import remarkGfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeExternalLinks from 'rehype-external-links';
+import rehypeShiki from '@shikijs/rehype';
 import rehypeStringify from 'rehype-stringify';
+import { visit } from 'unist-util-visit';
+import type { Root } from 'hast';
 
 const POSTS_DIR = path.join(process.cwd(), 'content', 'posts');
 
@@ -112,15 +116,34 @@ const extractCoverImage = (markdown: string): string | undefined => {
   return undefined;
 };
 
+/** Add lazy-loading hints to every rendered image so long posts don't fetch
+ *  all screenshots up front (and the browser can decode off the main thread). */
+const rehypeLazyImages = () => (tree: Root) => {
+  visit(tree, 'element', node => {
+    if (node.tagName !== 'img') return;
+    node.properties = { ...node.properties, loading: 'lazy', decoding: 'async' };
+  });
+};
+
+/** Single shared processor: rehypeShiki spins up a syntax highlighter per
+ *  `.use()`, so building one pipeline per post would be needlessly slow. */
+const markdownProcessor = unified()
+  .use(remarkParse)
+  .use(remarkGfm)
+  .use(remarkRehype, { allowDangerousHtml: true })
+  .use(rehypeSlug)
+  .use(rehypeAutolinkHeadings, { behavior: 'wrap' })
+  .use(rehypeLazyImages)
+  .use(rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] })
+  .use(rehypeShiki, {
+    themes: { light: 'vitesse-light', dark: 'vitesse-dark' },
+    defaultColor: 'light',
+    fallbackLanguage: 'text',
+  })
+  .use(rehypeStringify, { allowDangerousHtml: true });
+
 const renderMarkdown = async (markdown: string): Promise<string> => {
-  const file = await unified()
-    .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkRehype, { allowDangerousHtml: true })
-    .use(rehypeSlug)
-    .use(rehypeAutolinkHeadings, { behavior: 'wrap' })
-    .use(rehypeStringify, { allowDangerousHtml: true })
-    .process(rewriteAssetPaths(markdown));
+  const file = await markdownProcessor.process(rewriteAssetPaths(markdown));
   return String(file);
 };
 

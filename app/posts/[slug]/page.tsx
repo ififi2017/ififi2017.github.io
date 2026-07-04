@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, Calendar, CalendarCheck, Folder, Clock } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Calendar, CalendarCheck, Folder, Clock } from 'lucide-react';
 import TableOfContents from './toc';
 import Comments from '@/components/Comments';
-import { getAllPosts, getPost } from '@/lib/posts';
+import PostZoom from '@/components/PostZoom';
+import { getAllPosts, getPost, type PostMeta } from '@/lib/posts';
 
 type RouteParams = { slug: string };
 type PageProps = { params: Promise<RouteParams> };
@@ -16,19 +17,57 @@ export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const post = await getPost(slug);
   if (!post) return { title: '未找到' };
+  const url = `/posts/${slug}/`;
   return {
     title: post.title,
     description: post.excerpt,
-    openGraph: { title: post.title, description: post.excerpt, type: 'article' },
+    alternates: { canonical: url },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: 'article',
+      url,
+      publishedTime: post.date,
+      modifiedTime: post.updated ?? post.date,
+      tags: post.tags,
+      ...(post.coverImage ? { images: [post.coverImage] } : {}),
+    },
+    twitter: {
+      card: post.coverImage ? 'summary_large_image' : 'summary',
+      title: post.title,
+      description: post.excerpt,
+    },
   };
 }
 
 const formatDate = (d: string) => d.replace(/-/g, '.');
 
+/** Posts sharing the most tags first (same category breaks ties), newest wins. */
+const relatedPosts = (post: PostMeta, all: PostMeta[], limit = 3): PostMeta[] =>
+  all
+    .filter(p => p.slug !== post.slug)
+    .map(p => ({
+      p,
+      score:
+        p.tags.filter(t => post.tags.includes(t)).length +
+        (p.category === post.category ? 0.5 : 0),
+    }))
+    .filter(x => x.score > 0)
+    .sort((a, b) => b.score - a.score || (a.p.date < b.p.date ? 1 : -1))
+    .slice(0, limit)
+    .map(x => x.p);
+
 export default async function PostPage({ params }: PageProps) {
   const { slug } = await params;
   const post = await getPost(slug);
   if (!post) notFound();
+
+  // getAllPosts() is sorted newest-first, so idx-1 is the newer neighbour.
+  const all = getAllPosts();
+  const idx = all.findIndex(p => p.slug === slug);
+  const newer = idx > 0 ? all[idx - 1] : null;
+  const older = idx >= 0 && idx < all.length - 1 ? all[idx + 1] : null;
+  const related = relatedPosts(post, all);
 
   return (
     <div className="rk-screen rk-post">
@@ -77,6 +116,40 @@ export default async function PostPage({ params }: PageProps) {
         </div>
       )}
 
+      {(older || newer) && (
+        <nav className="rk-post-nav" aria-label="上下篇导航">
+          {older ? (
+            <Link href={`/posts/${older.slug}/`} className="rk-post-nav-link">
+              <span className="rk-post-nav-label"><ArrowLeft className="rk-i" strokeWidth={1.75} />上一篇</span>
+              <span className="rk-post-nav-title">{older.title}</span>
+            </Link>
+          ) : <span />}
+          {newer ? (
+            <Link href={`/posts/${newer.slug}/`} className="rk-post-nav-link rk-post-nav-next">
+              <span className="rk-post-nav-label">下一篇<ArrowRight className="rk-i" strokeWidth={1.75} /></span>
+              <span className="rk-post-nav-title">{newer.title}</span>
+            </Link>
+          ) : <span />}
+        </nav>
+      )}
+
+      {related.length > 0 && (
+        <section className="rk-related">
+          <div className="rk-related-head">相关文章</div>
+          <ul className="rk-related-list">
+            {related.map(p => (
+              <li key={p.slug}>
+                <Link href={`/posts/${p.slug}/`} className="rk-related-link">
+                  <span className="rk-related-title">{p.title}</span>
+                  <span className="rk-related-meta">{formatDate(p.date)} · {p.category}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <PostZoom />
       <Comments />
     </div>
   );
