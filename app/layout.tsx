@@ -1,6 +1,10 @@
 import type { Metadata, Viewport } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+// Self-hosted CJK serif for the reading surface (sliced by unicode-range,
+// so readers only download the glyph ranges a page actually uses).
+import '@fontsource/noto-serif-sc/400.css';
+import '@fontsource/noto-serif-sc/600.css';
 import './globals.css';
 
 export const viewport: Viewport = {

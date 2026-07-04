@@ -59,7 +59,9 @@
 
   /* ---- Type — families ---- */
   --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-  --font-serif: ui-serif, 'Iowan Old Style', 'Songti SC', 'STSong', Georgia, serif;
+  /* Kami-style reading stack: Latin serif first so numerals/Latin render in
+     Charter/Georgia, then self-hosted Noto Serif SC (思源宋体) for CJK. */
+  --font-serif: Charter, 'Iowan Old Style', Georgia, 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'STSong', serif;
   --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Consolas, Menlo, 'PingFang SC', monospace;
 
   /* ---- Type — scale (1.250 modular, anchored at 16px) ---- */
@@ -3361,5 +3363,110 @@ body {
   .rk-featured-cta .rk-i,
   .rk-link-btn .rk-i {
     transition: none;
+  }
+}
+
+/* =========================================================================
+   Kami reading typography (github.com/tw93/kami)
+   Applied to the article reading surface only — UI chrome stays sans.
+   Rules adapted from Kami's design.md:
+   - single serif reading face, body 400 / headings 600, no synthetic bold
+   - CJK body letter-spacing ≈ 0.02em, lede 0.03–0.06em, display +tracking
+   - tight headline line-heights (1.2–1.3), brand-colored list markers
+   - no fake italics on CJK (quotes and ledes are upright)
+   ========================================================================= */
+
+.rk-post-title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: 0.012em;
+}
+
+.rk-post-lede {
+  font-style: normal;
+  font-size: 21px;
+  line-height: 1.62;
+  letter-spacing: 0.04em;
+}
+
+.rk-prose {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  letter-spacing: 0.02em;
+}
+
+.rk-prose p {
+  line-height: 1.8;
+  text-align: justify;
+  hanging-punctuation: first allow-end;
+}
+
+.rk-prose ul,
+.rk-prose ol {
+  line-height: 1.8;
+}
+
+.rk-prose li {
+  margin-bottom: 6px;
+  text-align: justify;
+}
+
+.rk-prose ul li::marker { color: var(--brand-accent); }
+.rk-prose ol li::marker { color: var(--brand-accent); font-weight: 600; }
+
+.rk-prose strong { font-weight: 600; }
+
+.rk-prose :is(h2, h3, h4) {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+
+.rk-prose blockquote {
+  font-style: normal;
+  font-size: 1em;
+  line-height: 1.75;
+  padding: 4px 0 4px 20px;
+  border-left: 2px solid var(--brand-accent);
+  color: var(--fg-2);
+}
+
+.rk-prose code { font-size: 14px; }
+.rk-prose pre code { font-size: inherit; }
+
+/* Functional surfaces inside the article stay sans (Kami: serif carries
+   authority, sans carries function). */
+.rk-prose table,
+.rk-prose .rk-note {
+  font-family: var(--font-sans);
+  letter-spacing: 0;
+  text-align: left;
+}
+
+@media (max-width: 820px) {
+  .rk-post-title {
+    line-height: 1.24;
+    letter-spacing: 0.008em;
+  }
+
+  .rk-post-lede {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .rk-post-body p,
+  .rk-post-body ul,
+  .rk-post-body ol,
+  .rk-prose p,
+  .rk-prose ul,
+  .rk-prose ol {
+    font-size: 16px;
+    line-height: 1.82;
+  }
+
+  .rk-prose code {
+    font-size: 13px;
   }
 }
