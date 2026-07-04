@@ -139,6 +139,19 @@ const markdownProcessor = unified()
     themes: { light: 'vitesse-light', dark: 'vitesse-dark' },
     defaultColor: 'light',
     fallbackLanguage: 'text',
+    transformers: [
+      {
+        // Expose the fenced language on the <pre> so the client can render a
+        // label. Plain/unspecified blocks (lang → 'text') get no label.
+        name: 'rainif:data-language',
+        pre(node) {
+          const lang = this.options.lang;
+          if (lang && !['text', 'plaintext', 'txt', 'ansi'].includes(lang)) {
+            node.properties['data-language'] = lang;
+          }
+        },
+      },
+    ],
   })
   .use(rehypeStringify, { allowDangerousHtml: true });
 

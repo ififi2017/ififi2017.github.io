@@ -5,6 +5,7 @@ import TableOfContents from './toc';
 import Comments from '@/components/Comments';
 import PostZoom from '@/components/PostZoom';
 import PostViews from '@/components/PostViews';
+import CodeBlock from '@/components/CodeBlock';
 import { getAllPosts, getPost, type PostMeta } from '@/lib/posts';
 
 type RouteParams = { slug: string };
@@ -152,6 +153,7 @@ export default async function PostPage({ params }: PageProps) {
       )}
 
       <PostZoom />
+      <CodeBlock />
       <Comments />
     </div>
   );
