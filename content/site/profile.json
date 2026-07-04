@@ -36,7 +36,8 @@
     }
   ],
   "site": [
-    "代码采用 MIT License；文章默认采用 CC BY-NC-SA 4.0；图片、照片、头像等个人媒体保留全部权利，除非另有说明。"
+    "代码采用 MIT License；文章默认采用 CC BY-NC-SA 4.0；图片、照片、头像等个人媒体保留全部权利，除非另有说明。",
+    "本站使用 [GoatCounter](https://www.goatcounter.com/) 统计访问量：不使用 Cookie，不采集 IP、浏览器指纹等可识别个人身份的信息。"
   ],
   "version": "v3.0.0",
   "license": "Code MIT · Content CC BY-NC-SA 4.0 · Media ARR"

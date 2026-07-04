@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, Calendar, CalendarCheck, Folder, Clock } from 'l
 import TableOfContents from './toc';
 import Comments from '@/components/Comments';
 import PostZoom from '@/components/PostZoom';
+import PostViews from '@/components/PostViews';
 import { getAllPosts, getPost, type PostMeta } from '@/lib/posts';
 
 type RouteParams = { slug: string };
@@ -95,6 +96,7 @@ export default async function PostPage({ params }: PageProps) {
             <span className="rk-meta-item">
               <Clock className="rk-i" strokeWidth={1.75} />{post.readingMinutes} 分钟
             </span>
+            <PostViews />
           </span>
         </div>
         <h1 className="rk-post-title">{post.title}</h1>
