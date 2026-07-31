@@ -9,6 +9,8 @@ coverImage: /images/posts/a-cat-decided-not-to-explain/hero.jpg
 slug: a-cat-decided-not-to-explain
 ---
 
+![雨后凌晨的窗台，一只安静的黑猫望向将要亮起来的城市](/images/posts/a-cat-decided-not-to-explain/hero.jpg)
+
 凌晨三点十七分，一只猫决定不再解释自己。
 
 它坐在窗台上，尾巴垂到楼下看不见的地方。雨刚停，屋檐还在一滴一滴地漏水，像有人在黑暗里犹豫着要不要敲门。
