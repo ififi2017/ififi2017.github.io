@@ -5,7 +5,7 @@ updated: 2026-07-31
 category: 随笔
 tags: [散文, 猫, 城市, 孤独]
 excerpt: 一只猫忽然决定不再解释自己。它开始观察凌晨的城市，把想说的话藏进雨、灯光和没有收件人的信里。
-coverImage: /images/posts/hermes-agent-catgirl-skill/a-cat-decided-not-to-explain.png
+coverImage: /images/posts/a-cat-decided-not-to-explain/hero.jpg
 slug: a-cat-decided-not-to-explain
 ---
 
