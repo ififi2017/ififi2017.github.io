@@ -69,7 +69,7 @@ ffmpeg -i input.mp4 -vf "fps=12,scale=480:-1:flags=lanczos" output.gif
 
 ![安装完成后的右上角下载按钮示意图](/images/posts/weibo-gif-downloader-install.jpg)
 
-上面这张图就是安装完成后的效果：动图右上角会出现一个蓝色小框，里面是橙色的 `↓ GIF` 按钮。它只是一个浮动入口，不会遮住整个视频，也不需要额外打开面板。
+上面这张图就是安装完成后的效果：动图右上角会出现一个橙色的 `↓ GIF` 按钮。它只是一个浮动入口，不会遮住整个视频，也不需要额外打开面板。
 
 ## 使用方法
 
