@@ -5,8 +5,11 @@ updated: 2026-08-04
 category: 随笔
 tags: [散文, 房间, 城市, 生活]
 excerpt: 搬进一间没有阳台的房子以后，我开始重新理解光、风和那些不必拥有的东西。
+coverImage: /images/posts/the-room-without-a-balcony/hero.svg
 slug: the-room-without-a-balcony
 ---
+
+![没有阳台的房间：夜里的书桌、窗户和城市灯光](/images/posts/the-room-without-a-balcony/hero.svg)
 
 搬家以后，我最先发现的不是房间变小了，而是风没有地方进来。
 

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">没有阳台的房间</title>
+  <desc id="desc">夜里的小房间，桌前亮着一盏灯，窗外是安静的城市，没有阳台。</desc>
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#d9c8ae"/><stop offset="1" stop-color="#b69c7c"/></linearGradient>
+    <linearGradient id="window" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#172735"/><stop offset="1" stop-color="#304758"/></linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#8c684c"/><stop offset="1" stop-color="#4d382f"/></linearGradient>
+    <radialGradient id="lamp" cx="50%" cy="50%"><stop stop-color="#ffe4a3" stop-opacity=".8"/><stop offset="1" stop-color="#ffe4a3" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#wall)"/>
+  <rect y="690" width="1600" height="210" fill="url(#floor)"/>
+  <path d="M0 140h1600M0 280h1600M0 420h1600M0 560h1600" stroke="#a58e73" stroke-opacity=".22" stroke-width="2"/>
+  <g transform="translate(1030 100)">
+    <rect width="430" height="470" rx="5" fill="#6f523f"/>
+    <rect x="24" y="24" width="382" height="422" fill="url(#window)"/>
+    <path d="M215 24v422M24 235h382" stroke="#a77e5b" stroke-width="12"/>
+    <circle cx="320" cy="110" r="34" fill="#e9dfbc" opacity=".8"/>
+    <path d="M35 350c90-90 145-20 225-80s120-14 156-63v215H35z" fill="#101b28" opacity=".9"/>
+    <g fill="#f2c979" opacity=".8"><rect x="64" y="290" width="12" height="7"/><rect x="112" y="170" width="9" height="6"/><rect x="285" y="300" width="14" height="8"/><rect x="345" y="215" width="8" height="5"/></g>
+  </g>
+  <ellipse cx="760" cy="715" rx="440" ry="260" fill="url(#lamp)"/>
+  <g transform="translate(290 520)">
+    <rect x="0" y="170" width="760" height="30" rx="8" fill="#4b342c"/>
+    <rect x="70" y="200" width="28" height="190" fill="#4b342c"/><rect x="660" y="200" width="28" height="190" fill="#4b342c"/>
+    <rect x="135" y="75" width="420" height="95" rx="5" fill="#202b34"/>
+    <rect x="150" y="88" width="390" height="70" fill="#496477"/>
+    <path d="M175 130h110l20-24 33 35 40-48 42 37h75" fill="none" stroke="#b8d0d5" stroke-width="4" opacity=".75"/>
+    <rect x="270" y="170" width="145" height="12" fill="#332725"/>
+  </g>
+  <g transform="translate(805 455)">
+    <path d="M35 0h125l25 52H10z" fill="#dcae62"/>
+    <path d="M80 52h34v120H80z" fill="#b97e4e"/>
+    <ellipse cx="97" cy="175" rx="80" ry="13" fill="#5c4034"/>
+  </g>
+  <g transform="translate(470 755)" fill="#2d2020"><rect width="150" height="10" rx="5"/><rect x="18" y="22" width="110" height="8" rx="4"/></g>
+  <text x="110" y="120" fill="#3f302b" font-family="serif" font-size="54" letter-spacing="8">没有阳台的房间</text>
+  <text x="115" y="180" fill="#5b473b" font-family="sans-serif" font-size="20" letter-spacing="5">THE ROOM WITHOUT A BALCONY</text>
+</svg>
