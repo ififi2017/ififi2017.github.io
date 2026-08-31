@@ -1965,6 +1965,12 @@ a.rk-nav-item { text-decoration: none; }
   box-shadow: var(--shadow-1);
   margin: 16px 0;
 }
+/* Portrait App Store marketing shots: keep them phone-width in the reading column. */
+.rk-prose img.shot-phone {
+  max-width: min(100%, 22rem);
+  display: block;
+  margin-inline: auto;
+}
 .rk-prose blockquote {
   margin: var(--s-5) 0;
   padding: 0 var(--s-5);
