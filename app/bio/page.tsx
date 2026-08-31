@@ -25,6 +25,7 @@ const iconFor = (type: ProfileLink['type']) => {
 export default async function BioPage() {
   const profile = getProfile();
   const bioHtml = await getBioHtml();
+  const nowHtml = await Promise.all(profile.now.map(getInlineMarkdownHtml));
   const siteHtml = await Promise.all(profile.site.map(getInlineMarkdownHtml));
 
   return (
@@ -67,10 +68,10 @@ export default async function BioPage() {
             <span>/now</span>
           </header>
           <ul className="rk-now-list">
-            {profile.now.map((item, index) => (
-              <li key={item}>
+            {nowHtml.map((html, index) => (
+              <li key={profile.now[index]}>
                 <span className="rk-now-index">{String(index + 1).padStart(2, '0')}</span>
-                <div>{item}</div>
+                <div dangerouslySetInnerHTML={{ __html: html }} />
               </li>
             ))}
           </ul>

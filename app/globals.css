@@ -522,6 +522,16 @@ body { margin: 0; }
   font-weight: 600;
 }
 
+.rk-bio .rk-now-list a {
+  color: inherit;
+  border-bottom-color: color-mix(in oklab, var(--brand-accent) 45%, var(--border-2));
+}
+
+.rk-bio .rk-now-list a:hover {
+  color: var(--brand-accent);
+  border-bottom-color: var(--brand-accent);
+}
+
 .rk-bio .rk-link-list {
   gap: 0;
 }
