@@ -1,7 +1,7 @@
 ---
 title: 下班倒计时改名 DoneAt：iOS 与 macOS 上架记
 date: 2026-08-31
-updated: 2026-08-31
+updated: 2026-10-07
 category: 项目
 tags: [DoneAt, iOS, SwiftUI, App Store, macOS]
 excerpt: 五月那篇网页倒计时，现在叫 DoneAt。3.1.8 已经在 App Store 上架，iPhone、iPad 和 Mac 共用一条商店记录。记下改名、原生客户端和过审这一段。
@@ -126,7 +126,7 @@ Mac 商店版原先是单独的付费应用。Apple 的通用购买要求 iPhone
 
 它还是那个可以一直开着的小工具。设一次班次，看还剩多久。只是现在可以放进主屏幕、锁屏和灵动岛，关了页面也还在走。
 
-网页版继续留着，打开就能用。想要系统提醒和小组件，去 App Store 装 DoneAt。Windows 在 [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ)。源码仍是 MIT。
+网页版继续留着，打开就能用。想要系统提醒和小组件，去 App Store 装 DoneAt。Windows 在 [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ)。源码以 MPL-2.0 开源。
 
 五月那篇的最后一句是：如果你也有「想要一个简单到不能再简单」的小工具念头，建议直接动手写。三个月后回头看，这句话仍然成立——只是「简单」并不等于「只做一个网页」。
 

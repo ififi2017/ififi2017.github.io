@@ -210,7 +210,7 @@
 <p>3.1.8 已经在商店里。更新说明的第一句是：「下班倒计时」现已更名为 DoneAt。</p>
 <h2>后话</h2>
 <p>它还是那个可以一直开着的小工具。设一次班次，看还剩多久。只是现在可以放进主屏幕、锁屏和灵动岛，关了页面也还在走。</p>
-<p>网页版继续留着，打开就能用。想要系统提醒和小组件，去 App Store 装 DoneAt。Windows 在 <a href="https://apps.microsoft.com/detail/9PM0HJ2PP2LJ">Microsoft Store</a>。源码仍是 MIT。</p>
+<p>网页版继续留着，打开就能用。想要系统提醒和小组件，去 App Store 装 DoneAt。Windows 在 <a href="https://apps.microsoft.com/detail/9PM0HJ2PP2LJ">Microsoft Store</a>。源码以 MPL-2.0 开源。</p>
 <p>五月那篇的最后一句是：如果你也有「想要一个简单到不能再简单」的小工具念头，建议直接动手写。三个月后回头看，这句话仍然成立——只是「简单」并不等于「只做一个网页」。</p>
 <h2>相关链接</h2>
 <ul>
