@@ -38,9 +38,8 @@ export default async function TagPage({ params }: PageProps) {
       </Link>
 
       <header className="rk-page-head">
-        <div className="rk-section-tag">TAG</div>
+        <div className="rk-section-tag">Tag</div>
         <h1 className="rk-page-title">#{decoded}</h1>
-        <p className="rk-archive-signature">Writing connected by one topic.</p>
         <p className="rk-page-sub">共 {posts.length} 篇带此标签的文章。</p>
       </header>
 

@@ -1,11 +1,14 @@
 {
-  "name": "fi niaR",
+  "name": "fi_niaR",
   "handle": "@ififi2017",
   "avatar": "/avatar-256.png",
-  "lede": ["write it down,", "if it rains."],
+  "lede": [
+    "write it down,",
+    "if it rains."
+  ],
   "now": [
     "在 Shanghai 当 IT 牛马。",
-    "在开发 [DoneAt](https://doneat.app/zh-CN)，一个下班倒计时。",
+    "在 fi_niaR Studio 做小而安静的工具，也在这里记录开发过程。",
     "偶尔在 Instagram 与 YouTube 上发拍到的东西。"
   ],
   "links": [
@@ -40,5 +43,33 @@
     "本站使用 [GoatCounter](https://www.goatcounter.com/) 统计访问量：不使用 Cookie，不采集 IP、浏览器指纹等可识别个人身份的信息。"
   ],
   "version": "v3.0.0",
-  "license": "Code MIT · Content CC BY-NC-SA 4.0 · Media ARR"
+  "license": "Code MIT · Content CC BY-NC-SA 4.0 · Media ARR",
+  "studio": {
+    "name": "fi_niaR Studio",
+    "url": "https://finiar.app/",
+    "description": "做本地优先、尊重隐私的小工具。不强制注册，让每个 App 认真解决一个具体问题。",
+    "projects": [
+      {
+        "name": "DoneAt",
+        "status": "已上架",
+        "description": "下班倒计时，把剩余时间、工作进度和今日已赚放在一起。",
+        "url": "https://doneat.app/zh-CN",
+        "type": "时间与工作"
+      },
+      {
+        "name": "念匣 · Nianbox",
+        "status": "即将推出",
+        "description": "录下转瞬即逝的想法，在 iPhone 上转成文字，再按项目归档。",
+        "url": "https://nianbox.app/",
+        "type": "想法与记录"
+      },
+      {
+        "name": "Pingmoss",
+        "status": "即将推出",
+        "description": "用图表与原始输出查看网络，检查 Ping、路由、DNS 和 HTTP。",
+        "url": "https://pingmoss.com/",
+        "type": "网络与诊断"
+      }
+    ]
+  }
 }

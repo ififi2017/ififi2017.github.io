@@ -20,6 +20,12 @@ export type Profile = {
   avatar: string;
   lede: string[];
   now: string[];
+  studio: {
+    name: string;
+    url: string;
+    description: string;
+    projects: { name: string; status: string; description: string; url: string; type: string }[];
+  };
   links: ProfileLink[];
   site: string[];
   version: string;

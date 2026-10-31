@@ -25,87 +25,78 @@ const iconFor = (type: ProfileLink['type']) => {
 export default async function BioPage() {
   const profile = getProfile();
   const bioHtml = await getBioHtml();
-  const nowHtml = await Promise.all(profile.now.map(getInlineMarkdownHtml));
   const siteHtml = await Promise.all(profile.site.map(getInlineMarkdownHtml));
 
   return (
-    <div className="rk-screen rk-bio">
-      <header className="rk-bio-hero">
-        <div className="rk-bio-visual">
-          <div className="rk-bio-portrait">
-            <Image
-              src={profile.avatar}
-              alt={profile.name}
-              width={256}
-              height={256}
-              priority
-            />
-          </div>
-          <div className="rk-bio-identity">
-            <span>{profile.name}</span>
-            <span>{profile.handle}</span>
-          </div>
+    <div className="rk-screen rk-bio rk-profile">
+      <aside className="rk-profile-card">
+        <div className="rk-profile-portrait">
+          <Image src={profile.avatar} alt={profile.name} width={256} height={256} priority />
         </div>
+        <p className="rk-profile-name">{profile.name}</p>
+        <p className="rk-profile-handle">{profile.handle}</p>
+        <ul className="rk-profile-links" aria-label="找到我">
+          {profile.links.map(link => (
+            <li key={link.href}>
+              <a href={link.href} rel={link.href.startsWith('http') ? 'me noopener' : undefined}>
+                <span className="rk-link-icon">{iconFor(link.type)}</span>
+                <span className="rk-profile-link-label">{link.label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </aside>
 
-        <div className="rk-bio-intro">
-          <div className="rk-bio-kicker">About / Bio</div>
-          <h1 className="rk-bio-name">
-            你好，我是 <span>{profile.name}。</span>
-          </h1>
-          <p className="rk-bio-lede">
-            {profile.lede.map(line => (
-              <em key={line}>{line}</em>
-            ))}
-          </p>
-          <div className="rk-bio-copy" dangerouslySetInnerHTML={{ __html: bioHtml }} />
-        </div>
-      </header>
+      <div className="rk-profile-main">
+        <header className="rk-profile-intro">
+          <p className="rk-profile-kicker">关于我</p>
+          <h1>你好，我是 {profile.name}</h1>
+          <p className="rk-profile-motto">{profile.lede.join(' ')}</p>
+          <div className="rk-profile-copy" dangerouslySetInnerHTML={{ __html: bioHtml }} />
+        </header>
 
-      <div className="rk-bio-grid">
-        <section className="rk-bio-section rk-bio-now">
-          <header className="rk-bio-section-head">
-            <h2>现在</h2>
-            <span>/now</span>
+        <section className="rk-profile-section" aria-labelledby="studio-title">
+          <header className="rk-profile-section-head">
+            <div>
+              <p className="rk-profile-kicker">正在做</p>
+              <h2 id="studio-title">{profile.studio.name}</h2>
+            </div>
+            <a href={profile.studio.url} className="rk-link-btn">逛逛工作室 <ArrowUpRight className="rk-i" strokeWidth={1.75} /></a>
           </header>
-          <ul className="rk-now-list">
-            {nowHtml.map((html, index) => (
-              <li key={profile.now[index]}>
-                <span className="rk-now-index">{String(index + 1).padStart(2, '0')}</span>
-                <div dangerouslySetInnerHTML={{ __html: html }} />
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="rk-bio-section rk-bio-contact">
-          <header className="rk-bio-section-head">
-            <h2>找到我</h2>
-            <span>Links</span>
-          </header>
-          <ul className="rk-link-list">
-            {profile.links.map(link => (
-              <li key={link.href}>
-                <a href={link.href} rel={link.href.startsWith('http') ? 'me noopener' : undefined}>
-                  <span className="rk-link-icon">{iconFor(link.type)}</span>
-                  <span>{link.label}</span>
-                  <ArrowUpRight className="rk-i rk-link-arrow" strokeWidth={1.75} />
+          <p className="rk-profile-section-copy">{profile.studio.description}</p>
+          <ol className="rk-profile-projects">
+            {profile.studio.projects.map((project, index) => (
+              <li key={project.name}>
+                <a href={project.url}>
+                  <span className="rk-profile-project-index">0{index + 1}</span>
+                  <span className="rk-profile-project-body">
+                    <span className="rk-profile-project-name">{project.name}</span>
+                    <span className="rk-profile-project-desc">{project.description}</span>
+                  </span>
+                  <span className="rk-profile-project-meta">
+                    <span className={`rk-status${project.status === '已上架' ? ' is-live' : ''}`} aria-hidden="true" />
+                    {project.type} · {project.status}
+                  </span>
+                  <ArrowUpRight className="rk-i rk-profile-project-arrow" strokeWidth={1.75} />
                 </a>
               </li>
             ))}
-          </ul>
+          </ol>
         </section>
 
-        <section className="rk-bio-section rk-bio-site">
-          <header className="rk-bio-section-head">
-            <h2>关于本站</h2>
-            <span>Rainif.com</span>
+        <section className="rk-profile-section" aria-labelledby="site-title">
+          <header className="rk-profile-section-head">
+            <div>
+              <p className="rk-profile-kicker">rainif.com</p>
+              <h2 id="site-title">关于本站</h2>
+            </div>
           </header>
-          <div className="rk-bio-site-copy">
+          <div className="rk-profile-site">
             {siteHtml.map((html, index) => (
               <p key={index} dangerouslySetInnerHTML={{ __html: html }} />
             ))}
+            <p className="rk-profile-version">{profile.version} · {profile.license}</p>
           </div>
-          <p className="rk-mono-meta">{profile.version} / {new Date().getFullYear()} / {profile.license}</p>
         </section>
       </div>
     </div>

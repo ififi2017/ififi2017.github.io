@@ -16,7 +16,7 @@ const NAV = [
 ];
 
 const isActive = (pathname: string, href: string) =>
-  href === '/' ? pathname === '/' : pathname.startsWith(href);
+  href === '/' ? pathname === '/' : pathname.startsWith(href) || (href === '/tags' && pathname.startsWith('/categories/'));
 
 export default function Header() {
   const pathname = usePathname() ?? '/';
@@ -62,13 +62,12 @@ export default function Header() {
   return (
     <>
       <header className="rk-header">
-        <div className="rk-header-band" />
         <div className="rk-header-inner">
           <Link href="/" className="rk-brand">
             <span className="rk-brand-avatar">
               <Image
                 src="/avatar-96.png"
-                alt="fi niaR"
+                alt="fi_niaR"
                 width={96}
                 height={96}
                 priority

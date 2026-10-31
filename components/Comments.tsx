@@ -44,7 +44,7 @@ export default function Comments() {
   return (
     <section className="rk-comments">
       <div className="rk-comments-head">
-        <div className="rk-section-tag">COMMENTS</div>
+        <div className="rk-section-tag">Comments</div>
         <h3 className="rk-section-title">留言</h3>
         <p className="rk-comments-sub">
           评论存储在 GitHub Discussions。需要登录 GitHub。

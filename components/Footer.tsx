@@ -10,7 +10,7 @@ export default function Footer() {
     <footer className="rk-footer">
       <div className="rk-footer-inner">
         <div className="rk-footer-meta">
-          <span>© {YEAR} fi niaR</span>
+          <span>© {YEAR} fi_niaR</span>
           <span className="rk-dot">·</span>
           <span>rainif.com</span>
           <span className="rk-dot">·</span>

@@ -47,7 +47,7 @@ export default function TableOfContents({ items }: { items: TocItem[] }) {
   return (
     <>
       <aside className="rk-toc">
-        <div className="rk-toc-label">CONTENTS</div>
+        <div className="rk-toc-label">目录</div>
         {list}
       </aside>
       {/* Collapsible fallback for narrow screens where the sidebar is hidden */}

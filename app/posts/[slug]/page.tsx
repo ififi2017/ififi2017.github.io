@@ -74,7 +74,7 @@ export default async function PostPage({ params }: PageProps) {
   return (
     <div className="rk-screen rk-post">
       <Link href="/" className="rk-back">
-        <ArrowLeft className="rk-i" strokeWidth={1.75} /> 返回
+        <ArrowLeft className="rk-i" strokeWidth={1.75} /> 返回首页
       </Link>
 
       <header className="rk-post-header">
@@ -92,7 +92,7 @@ export default async function PostPage({ params }: PageProps) {
 
           <span className="rk-meta-group">
             <span className="rk-meta-item">
-              <Folder className="rk-i" strokeWidth={1.75} />{post.category}
+              <Folder className="rk-i" strokeWidth={1.75} /><Link href={`/categories/${encodeURIComponent(post.category)}/`}>{post.category}</Link>
             </span>
             <span className="rk-meta-item">
               <Clock className="rk-i" strokeWidth={1.75} />{post.readingMinutes} 分钟
@@ -115,7 +115,7 @@ export default async function PostPage({ params }: PageProps) {
 
       {post.tags.length > 0 && (
         <div className="rk-post-tags">
-          {post.tags.map(t => <span key={t} className="rk-tag">#{t}</span>)}
+          {post.tags.map(t => <Link key={t} href={`/tags/${encodeURIComponent(t)}/`} className="rk-tag">#{t}</Link>)}
         </div>
       )}
 

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: '%s · fi_niaR',
   },
   description: '关于 macOS、OpenCore、Hackintosh、与那些值得记下来的零碎。',
-  authors: [{ name: 'fi niaR', url: 'https://github.com/ififi2017' }],
+  authors: [{ name: 'fi_niaR', url: 'https://github.com/ififi2017' }],
   icons: {
     icon: [
       { url: '/logo.svg', type: 'image/svg+xml' },
@@ -74,9 +74,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: themeBootstrap }} />
       </head>
       <body>
+        <a href="#main-content" className="rk-skip-link">跳到正文</a>
         <div className="rk-app">
           <Header />
-          <main className="rk-main">{children}</main>
+          <main id="main-content" tabIndex={-1} className="rk-main">{children}</main>
           <Footer />
         </div>
         {GOATCOUNTER_CODE && (

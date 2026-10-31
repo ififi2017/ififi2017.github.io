@@ -31,14 +31,13 @@ export default async function CategoryPage({ params }: PageProps) {
 
   return (
     <div className="rk-screen rk-archive rk-taxonomy-page">
-      <Link href="/tags/" className="rk-back">
+      <Link href="/tags/#categories" className="rk-back">
         <ArrowLeft className="rk-i" strokeWidth={1.75} /> 分类
       </Link>
 
       <header className="rk-page-head">
-        <div className="rk-section-tag">CATEGORY</div>
+        <div className="rk-section-tag">Collection</div>
         <h1 className="rk-page-title">{decoded}</h1>
-        <p className="rk-archive-signature">A collection of related writing.</p>
         <p className="rk-page-sub">共 {posts.length} 篇文章。</p>
       </header>
 
