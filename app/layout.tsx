@@ -72,6 +72,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="zh-CN" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBootstrap }} />
+        {/* Google AdSense site verification (no ad units, auto ads not enabled). */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9912554861143289"
+          crossOrigin="anonymous"
+        />
       </head>
       <body>
         <a href="#main-content" className="rk-skip-link">跳到正文</a>
